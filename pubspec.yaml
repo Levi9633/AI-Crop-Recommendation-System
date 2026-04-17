@@ -1,0 +1,39 @@
+name: ai_plant_app
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  lottie: ^3.3.1
+  http: ^1.5.0
+  mysql_client: ^0.0.27
+  flutter_secure_storage: ^8.0.0
+
+  intl: ^0.20.2
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.6
+  flutter_gen_runner: ^5.4.0
+
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/profile.png
+    - assets/profile1.png
+    - assets/locations.json
