@@ -1,0 +1,764 @@
+State,District,N_ppm,P_ppm,K_ppm,pH_avg,Temp_C_avg,Rainfall_mm,Humidity,Source
+Andaman And Nicobar Islands,Nicobars,182.04,19.37,78,7.44,28.55,1547.3,82.9,Estimated_Sampled
+Andaman And Nicobar Islands,North And Middle Andaman,199.14,12.83,179.43,6.87,26.91,1073,61.41,Estimated_Sampled
+Andaman And Nicobar Islands,South Andamans,162.03,13.58,186.28,5.53,23.35,1526.7,73.9,Estimated_Sampled
+Andhra Pradesh,Alluri Sitharama Raju,148.98,21.24,148.37,6.75,25.67,741.7,46.54,Estimated_Sampled
+Andhra Pradesh,Anakapalli,196.9,17.96,189.3,5.63,21.17,1463.5,57.71,Estimated_Sampled
+Andhra Pradesh,Anantapur,127.01,28.84,111.37,6.47,26.62,742.1,54.87,Estimated_Sampled
+Andhra Pradesh,Annamayya,163.03,15.71,165.05,5.57,28.84,568.7,68.88,Estimated_Sampled
+Andhra Pradesh,Bapatla,130.37,18.26,66.15,7.04,19.45,1218.6,70.98,Estimated_Sampled
+Andhra Pradesh,Chittoor,122.42,9.07,189.05,5.96,18.94,1143.8,40.27,Estimated_Sampled
+Andhra Pradesh,East Godavari,142.79,20.04,123.87,6.9,23.39,1005.9,65.15,Estimated_Sampled
+Andhra Pradesh,Eluru,104.53,29.51,154.33,7.78,21.43,1317.6,58.48,Estimated_Sampled
+Andhra Pradesh,Guntur,112.01,8.92,78.82,6.68,23.28,424.5,54.28,Estimated_Sampled
+Andhra Pradesh,Kakinada,87.79,25.91,158.93,7.89,27.16,529.7,57.26,Estimated_Sampled
+Andhra Pradesh,Konaseema,103.1,13.06,128.41,6.06,20.45,988,71.11,Estimated_Sampled
+Andhra Pradesh,Krishna,159.98,17.5,86.53,5.56,20.17,782.4,80.8,Estimated_Sampled
+Andhra Pradesh,Kurnool,169.16,16.78,150.84,7.63,22.51,935.8,55.53,Estimated_Sampled
+Andhra Pradesh,Nandyal,151.53,28.94,84.84,6.78,19.97,851.7,85.75,Estimated_Sampled
+Andhra Pradesh,Ntr,144.18,8.46,152.56,7.75,23.61,459,86.24,Estimated_Sampled
+Andhra Pradesh,Palnadu,117.6,29.7,162.82,6.01,28.88,480.1,80.92,Estimated_Sampled
+Andhra Pradesh,Parvathipuram Manyam,124.73,23.97,142.4,6.94,27.91,1270.3,43.62,Estimated_Sampled
+Andhra Pradesh,Prakasam,143.11,16.61,192.32,6.61,20.73,1304.7,71.81,Estimated_Sampled
+Andhra Pradesh,Spsr Nellore,153.52,21.11,101.99,6.21,19.41,900.1,52.68,Estimated_Sampled
+Andhra Pradesh,Srikakulam,90.16,21.69,177.66,5.74,19.04,1313.2,75.27,Estimated_Sampled
+Andhra Pradesh,Sri Sathya Sai,164.56,23.02,177.1,7.55,23.33,692.3,79.17,Estimated_Sampled
+Andhra Pradesh,Tirupati,190.36,20.25,121.1,6.3,25.93,459.7,89.23,Estimated_Sampled
+Andhra Pradesh,Visakhapatanam,89.79,25.69,80.33,7.47,23.28,927,53.56,Estimated_Sampled
+Andhra Pradesh,Vizianagaram,100.07,23.1,134.67,6.31,26.48,732.1,70.82,Estimated_Sampled
+Andhra Pradesh,West Godavari,80.18,22.05,68.38,6.93,25.02,448.9,49.86,Estimated_Sampled
+Andhra Pradesh,Y.S.R.,186.76,15.02,92.93,7.84,26.68,1543.8,81.41,Estimated_Sampled
+Arunachal Pradesh,Anjaw,141.36,25.67,185.1,5.65,21.95,1363.4,74.1,Estimated_Sampled
+Arunachal Pradesh,Changlang,114.6,21.51,189.98,7.86,22.33,865.2,73.57,Estimated_Sampled
+Arunachal Pradesh,Dibang Valley,173.97,12.58,158.75,5.85,22.59,1098.7,89.62,Estimated_Sampled
+Arunachal Pradesh,East Kameng,80.71,21.78,93.04,6.38,18.18,914.9,67.68,Estimated_Sampled
+Arunachal Pradesh,East Siang,146.08,11.97,100.38,5.64,22.68,830.7,41.66,Estimated_Sampled
+Arunachal Pradesh,Kamle,187.86,15,103.57,7.3,20.87,1094,83.06,Estimated_Sampled
+Arunachal Pradesh,Kra Daadi,134.59,12.9,141.87,5.63,22.91,1482.8,44.36,Estimated_Sampled
+Arunachal Pradesh,Kurung Kumey,179.2,8.65,142.09,6.86,22.86,727.5,42.39,Estimated_Sampled
+Arunachal Pradesh,Leparada,129.79,25.7,143.35,7.41,21.26,1085.1,66.08,Estimated_Sampled
+Arunachal Pradesh,Lohit,146.6,12.23,105.15,6.29,20.1,959.9,65.61,Estimated_Sampled
+Arunachal Pradesh,Longding,177.56,11.14,151.59,7.32,21.99,911.3,86.91,Estimated_Sampled
+Arunachal Pradesh,Lower Dibang Valley,185.15,15.97,174.6,6.12,26.93,1090.6,68.99,Estimated_Sampled
+Arunachal Pradesh,Lower Siang,143.26,12.91,176.88,7.75,19.66,784.4,44.63,Estimated_Sampled
+Arunachal Pradesh,Lower Subansiri,137.13,12.81,103.42,7.42,28.43,1470.3,49.63,Estimated_Sampled
+Arunachal Pradesh,Namsai,185.87,23.25,77.02,5.83,18.49,602.2,56.06,Estimated_Sampled
+Arunachal Pradesh,Pakke Kessang,133.63,23.95,184.74,6.59,18.1,948.4,54.8,Estimated_Sampled
+Arunachal Pradesh,Papum Pare,108.34,14.09,165.01,7.21,28.19,1528.4,88.03,Estimated_Sampled
+Arunachal Pradesh,Shi Yomi,98.25,9.15,197.11,7.53,29.32,641.1,81.49,Estimated_Sampled
+Arunachal Pradesh,Siang,149.97,22.8,151.75,7.24,21.84,810.6,65.99,Estimated_Sampled
+Arunachal Pradesh,Tawang,120.13,19.13,111.42,7.73,18.23,1306.9,75.22,Estimated_Sampled
+Arunachal Pradesh,Tirap,120.01,21.38,156.24,7.82,24.52,530.2,62.68,Estimated_Sampled
+Arunachal Pradesh,Upper Siang,86.6,21.57,193.78,7.91,18.55,1075.7,89.64,Estimated_Sampled
+Arunachal Pradesh,Upper Subansiri,186.33,18.22,95.09,6,25.62,487.9,62.34,Estimated_Sampled
+Arunachal Pradesh,West Kameng,141.56,17.36,121.46,7.3,26.73,845.7,45.95,Estimated_Sampled
+Arunachal Pradesh,West Siang,115.56,11,99.29,6.17,23.17,1575.3,65.48,Estimated_Sampled
+Assam,Bajali,139.26,14.14,63.11,7.46,29.81,1519,40.32,Estimated_Sampled
+Assam,Baksa,166.94,8.94,110.19,6.84,20.84,659.6,60.89,Estimated_Sampled
+Assam,Barpeta,83.07,8.76,82.47,5.75,21.4,425.3,87.27,Estimated_Sampled
+Assam,Biswanath,91.9,29.14,92.46,7.16,22.86,1467,83.89,Estimated_Sampled
+Assam,Bongaigaon,199.69,20.41,103.84,6.48,24.99,1384.6,69.32,Estimated_Sampled
+Assam,Cachar,146.79,12.97,118.96,7.88,29.36,1196.5,71.15,Estimated_Sampled
+Assam,Charaideo,178.21,10.24,99.42,5.83,27.89,874.5,58.74,Estimated_Sampled
+Assam,Chirang,176.16,22.96,167.88,7.61,22.07,917.3,73.49,Estimated_Sampled
+Assam,Darrang,180.4,19.02,129.05,7.54,27.22,1531.9,84.49,Estimated_Sampled
+Assam,Dhemaji,170.87,9.8,127.08,6.44,28.32,1118.4,40.27,Estimated_Sampled
+Assam,Dhubri,108.2,13.89,82.97,7.62,22.03,1554.8,75.59,Estimated_Sampled
+Assam,Dibrugarh,135.05,13.23,125.27,6.68,26.93,644.8,45.26,Estimated_Sampled
+Assam,Dima Hasao,115.03,25.76,174.3,7.01,26.68,1305.9,59.18,Estimated_Sampled
+Assam,Goalpara,90.14,22.98,163.42,5.53,26.86,1039.7,81.68,Estimated_Sampled
+Assam,Golaghat,107.65,13.19,142.8,7.25,19.78,1253.6,53.96,Estimated_Sampled
+Assam,Hailakandi,186,16.11,148.85,5.6,29.69,1193.1,57.85,Estimated_Sampled
+Assam,Hojai,113.56,9.34,101.72,6.45,22.66,1208.6,72.41,Estimated_Sampled
+Assam,Jorhat,189.34,29.63,133.74,6.93,23.43,1131.2,65.49,Estimated_Sampled
+Assam,Kamrup,167.38,21.62,113.48,7.73,20.93,1597.3,60.02,Estimated_Sampled
+Assam,Kamrup Metro,119.06,9.36,89.93,5.64,23.86,1166.7,78.09,Estimated_Sampled
+Assam,Karbi Anglong,136.63,10.49,65.18,6.78,28.16,717.7,50.28,Estimated_Sampled
+Assam,Karimganj,107.67,27.84,123.41,6.64,24.15,1078.6,83.02,Estimated_Sampled
+Assam,Kokrajhar,131.37,14.39,134.45,7.62,21.76,459,87.6,Estimated_Sampled
+Assam,Lakhimpur,127.73,23.21,77.54,7.83,25.66,1540.1,61.88,Estimated_Sampled
+Assam,Majuli,167.32,26.25,81.51,5.54,20.6,460.3,77.49,Estimated_Sampled
+Assam,Marigaon,176.87,20.14,66.46,7.2,18.55,1513.7,57.95,Estimated_Sampled
+Assam,Nagaon,151.03,8.88,113.48,7.4,19.67,753.3,86.09,Estimated_Sampled
+Assam,Nalbari,106.04,26.23,91.93,5.81,26.36,1511.3,89.15,Estimated_Sampled
+Assam,Sivasagar,84.95,13.59,60.51,5.85,22.21,738.7,47.72,Estimated_Sampled
+Assam,Sonitpur,140.9,25.17,170.79,7.42,22.92,400.3,80.13,Estimated_Sampled
+Assam,South Salmara Mancachar,107.75,24.77,146.34,6.12,19.77,756.1,41.69,Estimated_Sampled
+Assam,Tamulpur,120.22,24.89,163.1,6.96,19.72,1402.4,61.51,Estimated_Sampled
+Assam,Tinsukia,110.27,12.81,158,7.97,27.85,1274.5,84.43,Estimated_Sampled
+Assam,Udalguri,114.13,13.41,121.4,6.62,22.52,757.4,64.34,Estimated_Sampled
+Assam,West Karbi Anglong,87.54,28.44,189.94,6.06,18.32,1279,61.06,Estimated_Sampled
+Bihar,Araria,111.92,11.28,160,6.79,28.67,593.5,56.97,Estimated_Sampled
+Bihar,Arwal,152.33,17.91,186.73,7.39,19.69,1389.9,78.82,Estimated_Sampled
+Bihar,Aurangabad,169.78,15.05,142.83,6.92,23.53,455.6,58.68,Estimated_Sampled
+Bihar,Banka,152.56,24.41,110.85,6.08,20.95,1282.8,71.97,Estimated_Sampled
+Bihar,Begusarai,146.24,8.42,149.52,7.89,18.36,1215.1,56.73,Estimated_Sampled
+Bihar,Bhagalpur,134.82,28.06,178.44,6.03,21.88,1385.3,89.33,Estimated_Sampled
+Bihar,Bhojpur,177.47,10.79,186.75,6.42,18.58,1106.9,76.18,Estimated_Sampled
+Bihar,Buxar,109.7,15.26,158.65,6.84,25.17,1085.1,57.9,Estimated_Sampled
+Bihar,Darbhanga,191.04,12.31,163.05,6.64,20.99,1404.1,78.2,Estimated_Sampled
+Bihar,Gaya,137.88,16.86,144.71,7.07,23.13,1145.1,82.07,Estimated_Sampled
+Bihar,Gopalganj,135.73,12.43,81.75,7.98,23.1,1593.9,67.48,Estimated_Sampled
+Bihar,Jamui,194.18,25.49,152.91,6.21,25.3,1148.7,42.73,Estimated_Sampled
+Bihar,Jehanabad,121.1,21,168.8,6.23,23.86,1381.2,85.37,Estimated_Sampled
+Bihar,Kaimur (Bhabua),167.18,27.83,87.01,7.74,18.51,1000.7,72.36,Estimated_Sampled
+Bihar,Katihar,127.37,12.84,178.72,6.46,23.04,416.2,46.21,Estimated_Sampled
+Bihar,Khagaria,132.65,16.67,116.17,7.64,24.42,1556.5,67.47,Estimated_Sampled
+Bihar,Kishanganj,175.88,14.53,61.17,6.54,24.94,597.8,63.22,Estimated_Sampled
+Bihar,Lakhisarai,187.56,18.77,179.39,5.54,19.57,932.7,83.67,Estimated_Sampled
+Bihar,Madhepura,94.84,9.52,184.54,7.04,22.57,725.7,80.45,Estimated_Sampled
+Bihar,Madhubani,117.15,18.53,190.18,7.08,26.93,910.8,70.31,Estimated_Sampled
+Bihar,Munger,85.96,8.32,149.21,7.31,20.19,954.7,52.01,Estimated_Sampled
+Bihar,Muzaffarpur,126.09,9.76,183.87,7.22,20.18,607.4,49.72,Estimated_Sampled
+Bihar,Nalanda,139.5,25.7,159.44,5.62,21,798,59.35,Estimated_Sampled
+Bihar,Nawada,158.74,16.82,112.37,6.37,19.44,816.9,52.88,Estimated_Sampled
+Bihar,Pashchim Champaran,160.96,22.31,197.23,7.57,21.91,1140.8,52.68,Estimated_Sampled
+Bihar,Patna,144.84,10.39,139.52,6.76,28.99,1036.4,63.51,Estimated_Sampled
+Bihar,Purbi Champaran,96.6,19.56,153.9,7.67,20.76,1203.6,68.06,Estimated_Sampled
+Bihar,Purnia,160.71,16.11,178.02,6.85,28.14,999.5,81.3,Estimated_Sampled
+Bihar,Rohtas,147.78,27.7,176.76,7.31,28.54,699.7,51.05,Estimated_Sampled
+Bihar,Saharsa,166.69,17.72,185.77,6.87,18.92,1594.2,66.76,Estimated_Sampled
+Bihar,Samastipur,134.17,22.67,71.12,5.54,22.83,1101.3,56.09,Estimated_Sampled
+Bihar,Saran,176.45,16.17,150.13,7.46,19.91,582.3,70.49,Estimated_Sampled
+Bihar,Sheikhpura,165.9,18.83,77.83,6.76,24.05,1286.8,43.95,Estimated_Sampled
+Bihar,Sheohar,86.78,10.58,115.26,6.82,22.89,635.5,66.94,Estimated_Sampled
+Bihar,Sitamarhi,177.94,18.25,98.21,6.77,24.27,442.8,68.4,Estimated_Sampled
+Bihar,Siwan,134.88,23.31,184.72,7.3,28.22,751.8,64.13,Estimated_Sampled
+Bihar,Supaul,116.56,20.13,133.27,6.9,29.08,665.6,81.03,Estimated_Sampled
+Bihar,Vaishali,130.58,24.79,133.63,6.67,18.7,719.6,57.13,Estimated_Sampled
+Chandigarh,Chandigarh,153.81,27.4,141.7,5.94,27.44,522,58.32,Estimated_Sampled
+Chhattisgarh,Balod,111.51,13.74,98.74,6.58,18.3,1082.3,89.62,Estimated_Sampled
+Chhattisgarh,Baloda Bazar,166.84,14.97,63,7.66,18.14,970.5,72.24,Estimated_Sampled
+Chhattisgarh,Balrampur,118.75,29.63,126.6,7.01,28.59,944.3,81.61,Estimated_Sampled
+Chhattisgarh,Bastar,146.04,25.28,176.38,6.14,24.27,980.7,61.11,Estimated_Sampled
+Chhattisgarh,Bemetara,126.73,24.16,142.03,7.13,27.79,987,43.58,Estimated_Sampled
+Chhattisgarh,Bijapur,171.97,10.53,194.02,5.6,26.34,940.2,73.31,Estimated_Sampled
+Chhattisgarh,Bilaspur,159.63,16.57,186.31,7.93,28.2,1541.1,40.84,Estimated_Sampled
+Chhattisgarh,Dantewada,118.69,11.8,152.44,6.09,18.49,948.8,81.86,Estimated_Sampled
+Chhattisgarh,Dhamtari,121.8,20.84,177.39,6.7,21.19,777.8,42.25,Estimated_Sampled
+Chhattisgarh,Durg,115.91,14.19,156.21,6.8,23.97,1310.8,52.44,Estimated_Sampled
+Chhattisgarh,Gariyaband,186.46,28.76,143.24,7.69,19.81,1004.1,72.38,Estimated_Sampled
+Chhattisgarh,Gaurella Pendra Marwahi,159.32,25.97,199.75,7.78,29.8,1352.9,83.14,Estimated_Sampled
+Chhattisgarh,Janjgir-Champa,134.17,28.94,68.98,7.88,29.75,888.2,85.32,Estimated_Sampled
+Chhattisgarh,Jashpur,151.02,17.34,163.06,7.29,28.08,1347.3,78.99,Estimated_Sampled
+Chhattisgarh,Kabirdham,144.43,17.13,167.67,7.44,28.45,737.5,59.34,Estimated_Sampled
+Chhattisgarh,Kanker,163.66,11.62,104.73,7.88,24.25,956.1,72.75,Estimated_Sampled
+Chhattisgarh,Khairgarh Chhuikhadan Gandai,90.81,13.62,71.36,6.46,18.42,1222,45.84,Estimated_Sampled
+Chhattisgarh,Kondagaon,86.77,23.78,136.34,7.07,20.27,777.1,43.83,Estimated_Sampled
+Chhattisgarh,Korba,176.47,16.6,117.43,7.13,19.24,1349.9,46.99,Estimated_Sampled
+Chhattisgarh,Korea,184.68,14.92,114.59,7.88,18.71,727.7,43.09,Estimated_Sampled
+Chhattisgarh,Mahasamund,80.85,18.98,185.25,5.93,29.3,614,54.86,Estimated_Sampled
+Chhattisgarh,Manendragarh Chirimiri Bharatpur,199.72,26.17,81.17,7.77,26.7,849.1,85.49,Estimated_Sampled
+Chhattisgarh,Mohla Manpur Ambagarh Chouki,178.16,26.23,130.53,7.88,25.73,711.2,48.9,Estimated_Sampled
+Chhattisgarh,Mungeli,96.02,27.74,65.38,6.52,18.62,568.3,48.73,Estimated_Sampled
+Chhattisgarh,Narayanpur,120.46,9.85,188.09,5.95,26.77,884.3,54.21,Estimated_Sampled
+Chhattisgarh,Raigarh,162.11,26.5,196.47,6.94,23.85,1300.2,71.28,Estimated_Sampled
+Chhattisgarh,Raipur,172.2,15.88,181.4,7.55,19.5,1176.2,76.34,Estimated_Sampled
+Chhattisgarh,Rajnandgaon,183.73,19.77,116.33,6.43,20.71,940.9,80.74,Estimated_Sampled
+Chhattisgarh,Sakti,191.09,13.65,114.82,6.35,20.21,1340,47.2,Estimated_Sampled
+Chhattisgarh,Sarangarh Bilaigarh,190.82,10.28,168.35,6.74,20.05,785.6,58.33,Estimated_Sampled
+Chhattisgarh,Sukma,196.47,24.92,100.72,5.64,28.04,558.1,83.07,Estimated_Sampled
+Chhattisgarh,Surajpur,176.28,22.5,143.89,7.28,29.39,1332.1,87.44,Estimated_Sampled
+Chhattisgarh,Surguja,169.48,27.76,115.36,7.73,18.34,1522.7,59.87,Estimated_Sampled
+Delhi,Central,176.99,14.1,160.64,6.17,20.13,1317.3,55.98,Estimated_Sampled
+Delhi,East,103.98,27.86,65.31,7.77,18.19,1132.9,59.96,Estimated_Sampled
+Delhi,New Delhi,106.44,24.6,152.53,6.76,25.05,1156.7,57.88,Estimated_Sampled
+Delhi,North,119.33,9.2,82.43,5.88,29.96,1344.1,52.3,Estimated_Sampled
+Delhi,North East,157.04,9.73,195.55,6.07,26.55,537.2,81.47,Estimated_Sampled
+Delhi,North West,185.2,18.6,142.25,5.92,27.41,580,61.9,Estimated_Sampled
+Delhi,Shahdara,138.7,27.33,117.34,6.93,22.99,922.3,56.8,Estimated_Sampled
+Delhi,South,128.22,27.89,187.64,7.76,21.58,697.7,85.84,Estimated_Sampled
+Delhi,South East,136.23,22.87,88.37,5.92,26.29,886.8,47.39,Estimated_Sampled
+Delhi,South West,107.27,18.99,112.11,7.73,22.17,867.5,86.69,Estimated_Sampled
+Delhi,West,172.88,17.68,170.33,6.97,25.65,500.7,42.4,Estimated_Sampled
+Goa,North Goa,100.93,26.45,104.28,6.44,26.23,525.9,59.14,Estimated_Sampled
+Goa,South Goa,91.84,13.48,115.64,6.42,25.9,734.1,43.76,Estimated_Sampled
+Gujarat,Ahmadabad,103.67,24.83,173.79,6.58,28.41,1146.8,88.3,Estimated_Sampled
+Gujarat,Amreli,173.17,22.92,134.26,7.31,18.26,1370.4,77.55,Estimated_Sampled
+Gujarat,Anand,100.36,15.96,151.07,6.93,22.05,808.5,84.35,Estimated_Sampled
+Gujarat,Arvalli,129.14,26.28,184.37,7.87,28.75,1234.9,77.07,Estimated_Sampled
+Gujarat,Banas Kantha,107.05,11.59,188.37,6.66,24.03,1393.2,68.29,Estimated_Sampled
+Gujarat,Bharuch,114.29,27.51,100.34,5.75,23.64,922.1,45.57,Estimated_Sampled
+Gujarat,Bhavnagar,182.93,13.51,64.26,6.93,18.81,760.3,64.04,Estimated_Sampled
+Gujarat,Botad,170.05,29.16,80.18,5.77,29.56,831.7,68.29,Estimated_Sampled
+Gujarat,Chhotaudepur,130.85,25.05,189.46,7.69,25.74,1414.1,81.34,Estimated_Sampled
+Gujarat,Dang,153.11,29.33,193.53,7.31,27.34,856,76.3,Estimated_Sampled
+Gujarat,Devbhumi Dwarka,81.57,9.72,177.64,5.54,18.72,728.2,83.96,Estimated_Sampled
+Gujarat,Dohad,190.02,18.92,143.89,5.88,26.78,1110.6,69.29,Estimated_Sampled
+Gujarat,Gandhinagar,145.52,9.27,88.2,7.48,24.3,1413.5,60.07,Estimated_Sampled
+Gujarat,Gir Somnath,156.37,11.86,161.46,7.52,22.57,923.1,64.94,Estimated_Sampled
+Gujarat,Jamnagar,86.43,18.36,98.35,6.29,28.79,1366.8,87.07,Estimated_Sampled
+Gujarat,Junagadh,102.6,25.83,169.69,6.24,19.91,1479.5,55.85,Estimated_Sampled
+Gujarat,Kachchh,94.08,15.86,163.13,6.07,19.19,1088.6,65.91,Estimated_Sampled
+Gujarat,Kheda,194.95,27.25,145.92,6.37,24.1,1154,64.45,Estimated_Sampled
+Gujarat,Mahesana,136.78,17.97,71.36,7.81,19.54,1012.1,59.84,Estimated_Sampled
+Gujarat,Mahisagar,154.56,20.68,133.77,6.8,29.01,666.4,47.16,Estimated_Sampled
+Gujarat,Morbi,128.69,26.44,79.25,5.64,24.01,505.4,67.06,Estimated_Sampled
+Gujarat,Narmada,134.5,9.27,118,6.7,28.17,1083.7,63.31,Estimated_Sampled
+Gujarat,Navsari,161.22,16.38,138.27,6.02,26.08,877.4,74.72,Estimated_Sampled
+Gujarat,Panch Mahals,83.28,12.13,118.67,6.49,25.41,466,50.73,Estimated_Sampled
+Gujarat,Patan,179.58,28.61,61.67,6.88,25.92,1345.1,78.55,Estimated_Sampled
+Gujarat,Porbandar,122.72,11.83,117.15,6.98,18.31,771.7,72.44,Estimated_Sampled
+Gujarat,Rajkot,146.19,12.53,181.47,6.55,20.09,545.4,40.82,Estimated_Sampled
+Gujarat,Sabar Kantha,107.09,24.66,95.91,5.89,26.86,420.7,81,Estimated_Sampled
+Gujarat,Surat,102.46,26.49,60.9,7.37,29.86,864.4,85.01,Estimated_Sampled
+Gujarat,Surendranagar,184.14,16.58,153.13,5.8,27.89,739.7,67.51,Estimated_Sampled
+Gujarat,Tapi,149.82,28.24,164.86,6.64,25.76,870,72.39,Estimated_Sampled
+Gujarat,Vadodara,123.04,26.65,67.76,7.21,26.24,946.8,51.84,Estimated_Sampled
+Gujarat,Valsad,91.09,22.07,126.33,7.57,29.89,1297.6,88.88,Estimated_Sampled
+Haryana,Ambala,169.12,29.24,141.06,6.6,18.49,1417.5,62.45,Estimated_Sampled
+Haryana,Bhiwani,133.06,29.66,102.21,6.19,28.4,1269.3,71.28,Estimated_Sampled
+Haryana,Charki Dadri,134.08,29.25,75.87,7.73,21.28,1014.4,42,Estimated_Sampled
+Haryana,Faridabad,195.97,11.64,168.78,7.15,27.73,1275.6,46.21,Estimated_Sampled
+Haryana,Fatehabad,111.22,12.18,188.84,5.63,29.25,1406.8,61.6,Estimated_Sampled
+Haryana,Gurugram,162.34,23.34,185.89,7.57,29.18,446.3,72.5,Estimated_Sampled
+Haryana,Hisar,101.58,18.21,124.03,5.53,23.54,683.5,57.8,Estimated_Sampled
+Haryana,Jhajjar,178.33,25.71,76.92,6.3,20.38,654.2,83.29,Estimated_Sampled
+Haryana,Jind,111.08,8.95,158.26,6.56,26.98,790.9,83.02,Estimated_Sampled
+Haryana,Kaithal,167.67,16.78,81.25,6.01,19.92,1291.9,63.96,Estimated_Sampled
+Haryana,Karnal,172.02,15.66,83.35,7.16,25.73,471,68.5,Estimated_Sampled
+Haryana,Kurukshetra,97.32,28.53,60.67,5.6,28.47,565.5,71.78,Estimated_Sampled
+Haryana,Mahendragarh,139.09,25.73,171.35,7.96,27.91,1405.7,78.51,Estimated_Sampled
+Haryana,Nuh,175.73,21.02,140.23,6.93,21.56,1566.8,43.9,Estimated_Sampled
+Haryana,Palwal,113.79,11.54,131.61,7.81,18.63,1286.7,44.56,Estimated_Sampled
+Haryana,Panchkula,94.99,26.74,181.76,5.63,26.06,1423.7,64.99,Estimated_Sampled
+Haryana,Panipat,109.13,14,82.37,7.93,25.2,796.6,45,Estimated_Sampled
+Haryana,Rewari,147.82,8.51,89.04,7.36,22.37,1207.5,46.19,Estimated_Sampled
+Haryana,Rohtak,99.18,8.8,149.27,5.84,27.54,414.8,71.27,Estimated_Sampled
+Haryana,Sirsa,104.3,21.37,170.35,6.87,25.14,1443.8,41.73,Estimated_Sampled
+Haryana,Sonipat,130,29.81,103.1,6.27,22.13,818.5,88.22,Estimated_Sampled
+Haryana,Yamunanagar,124.31,14.78,125.82,6.52,24.93,1462.4,67.78,Estimated_Sampled
+Himachal Pradesh,Bilaspur,91.3,19.66,65.24,7.16,23.77,675.8,69.19,Estimated_Sampled
+Himachal Pradesh,Chamba,96.35,28.19,89.81,5.64,19.29,1024.8,83.71,Estimated_Sampled
+Himachal Pradesh,Hamirpur,93.53,13.99,82.77,7.19,19.82,1547.2,40.48,Estimated_Sampled
+Himachal Pradesh,Kangra,184.2,24.8,123.56,6.64,25.25,571,68.13,Estimated_Sampled
+Himachal Pradesh,Kinnaur,124.05,12.96,122.32,7.82,22.38,875.2,68.48,Estimated_Sampled
+Himachal Pradesh,Kullu,91.62,18.23,183.46,6.85,24.18,1061.4,61.2,Estimated_Sampled
+Himachal Pradesh,Lahul And Spiti,140.36,27.38,154.17,6.26,20.95,1217,78.01,Estimated_Sampled
+Himachal Pradesh,Mandi,91.08,19.43,149.39,5.57,26.93,829.9,51.24,Estimated_Sampled
+Himachal Pradesh,Shimla,166.47,16.62,119.33,7.37,27.71,1536,54.99,Estimated_Sampled
+Himachal Pradesh,Sirmaur,93.57,20.03,114.3,7.63,24.84,715.6,63.99,Estimated_Sampled
+Himachal Pradesh,Solan,112.02,25.17,193.34,6.52,20.91,490.2,87.23,Estimated_Sampled
+Himachal Pradesh,Una,189.64,11.05,131.53,6.03,20.23,812.6,53.09,Estimated_Sampled
+Jammu And Kashmir,Anantnag,197.17,9.28,146.77,6.89,19.63,679.4,89.57,Estimated_Sampled
+Jammu And Kashmir,Bandipora,99.06,9.21,87,6.34,28.69,430.5,47.59,Estimated_Sampled
+Jammu And Kashmir,Baramulla,123.71,21.33,127.64,5.59,23.67,1500.4,76.49,Estimated_Sampled
+Jammu And Kashmir,Budgam,160.29,8.67,98.13,7.66,28.07,406.6,71.17,Estimated_Sampled
+Jammu And Kashmir,Doda,179.71,21.86,125.32,6.03,27.08,1211.6,74.11,Estimated_Sampled
+Jammu And Kashmir,Ganderbal,154.53,26.19,156.77,6.51,29.22,884.3,74.64,Estimated_Sampled
+Jammu And Kashmir,Jammu,158.99,18.96,97.7,7.6,19.29,1528.2,89.99,Estimated_Sampled
+Jammu And Kashmir,Kathua,83.93,24.28,150.29,6.67,24.11,513.2,55.86,Estimated_Sampled
+Jammu And Kashmir,Kishtwar,182.77,22.13,127.49,5.99,19.18,657.7,88.32,Estimated_Sampled
+Jammu And Kashmir,Kulgam,146.98,19.74,182.46,6.24,25.25,691.5,61.78,Estimated_Sampled
+Jammu And Kashmir,Kupwara,120.21,11.12,83.47,6.94,20.4,434.8,45.23,Estimated_Sampled
+Jammu And Kashmir,Poonch,118.04,18.26,97.36,7.71,22.88,560,88.13,Estimated_Sampled
+Jammu And Kashmir,Pulwama,151.31,26.1,62.35,7.96,20.88,679.6,43.32,Estimated_Sampled
+Jammu And Kashmir,Rajouri,195.62,27.38,129.17,7.83,26.9,1468.1,73.73,Estimated_Sampled
+Jammu And Kashmir,Ramban,132.63,18.48,164.14,6.08,27.73,841.1,55.58,Estimated_Sampled
+Jammu And Kashmir,Reasi,184.47,26.52,119.16,6.32,27.25,1095.1,52.64,Estimated_Sampled
+Jammu And Kashmir,Samba,83.76,20.4,81.18,5.6,19.1,665.9,60.98,Estimated_Sampled
+Jammu And Kashmir,Shopian,122.83,23.25,149.85,5.71,26.99,748,80.21,Estimated_Sampled
+Jammu And Kashmir,Srinagar,97,28.18,192.7,6.47,26.72,1339.8,77.41,Estimated_Sampled
+Jammu And Kashmir,Udhampur,153.93,20.67,187.76,7.36,18.21,671.3,60.29,Estimated_Sampled
+Jharkhand,Bokaro,127.87,20.58,169.11,6.47,25.21,1397.9,58.55,Estimated_Sampled
+Jharkhand,Chatra,176.77,18.15,131.66,6.36,29.02,917.2,67.61,Estimated_Sampled
+Jharkhand,Deoghar,84.14,25.88,125.93,5.87,22.75,739.4,63.17,Estimated_Sampled
+Jharkhand,Dhanbad,115.44,9.44,192.5,6.88,21.06,669.6,46.09,Estimated_Sampled
+Jharkhand,Dumka,175.57,24.86,85.25,6.7,18.95,1468.7,64.94,Estimated_Sampled
+Jharkhand,East Singhbum,151.25,9.31,70.56,6.28,26.93,1237.1,72.71,Estimated_Sampled
+Jharkhand,Garhwa,84.78,29.93,140.08,5.64,29.45,762.5,46.89,Estimated_Sampled
+Jharkhand,Giridih,195.35,10.18,96.98,6.9,21.13,497,58.77,Estimated_Sampled
+Jharkhand,Godda,162.34,28.45,160.14,7.61,23.49,1121.1,60.97,Estimated_Sampled
+Jharkhand,Gumla,85.42,28.45,82.48,5.71,25.43,1445.7,75.83,Estimated_Sampled
+Jharkhand,Hazaribagh,109.48,18.06,128.18,5.69,27.94,1518.8,77.07,Estimated_Sampled
+Jharkhand,Jamtara,134.1,11.85,155.19,7.09,29.88,826.2,60.88,Estimated_Sampled
+Jharkhand,Khunti,102.99,26.59,114.42,6.63,20.65,1548.3,63.54,Estimated_Sampled
+Jharkhand,Koderma,108.83,8.64,192.83,7.37,27.68,1430.4,83.92,Estimated_Sampled
+Jharkhand,Latehar,154.24,23.36,192.09,7.13,29.41,1298.4,67.5,Estimated_Sampled
+Jharkhand,Lohardaga,133.83,25.91,73.28,5.97,28.29,1385.2,68.62,Estimated_Sampled
+Jharkhand,Pakur,164,24.47,101.33,5.95,24.55,546.6,66.87,Estimated_Sampled
+Jharkhand,Palamu,99.35,11.3,168.35,7.13,23.28,1214.9,67.11,Estimated_Sampled
+Jharkhand,Ramgarh,84.52,8.69,132.8,6.05,24.72,1123.3,54.59,Estimated_Sampled
+Jharkhand,Ranchi,118.24,15.81,96.83,7.58,18.93,992.2,59.28,Estimated_Sampled
+Jharkhand,Sahebganj,198.6,18.24,157.26,6.14,22.44,1297.1,64.78,Estimated_Sampled
+Jharkhand,Saraikela Kharsawan,115.09,22.86,127.99,6.62,27.08,1357.8,72.02,Estimated_Sampled
+Jharkhand,Simdega,126.93,13.94,113.18,5.89,18.11,598.8,45.72,Estimated_Sampled
+Jharkhand,West Singhbhum,110.41,28.41,122.76,7.31,22.83,1558.8,71.73,Estimated_Sampled
+Karnataka,Bagalkote,144.65,10.59,184.16,6.24,22.86,1391.4,44.95,Estimated_Sampled
+Karnataka,Ballari,84.55,9.41,121.18,6.36,23.88,1582.3,61.91,Estimated_Sampled
+Karnataka,Belagavi,152.78,21.41,127.61,5.82,23.63,559.9,47.83,Estimated_Sampled
+Karnataka,Bengaluru Rural,144.11,18.81,165.22,6.95,26.85,666.8,42.62,Estimated_Sampled
+Karnataka,Bengaluru Urban,187.8,16.31,119.35,7.64,22.13,780.2,73.66,Estimated_Sampled
+Karnataka,Bidar,170.3,9.09,90.86,7.09,26.52,1217.3,78.59,Estimated_Sampled
+Karnataka,Chamarajanagara,171.66,25.23,85.27,6.44,20.74,1567.8,64.27,Estimated_Sampled
+Karnataka,Chikkaballapura,114.28,9.68,169.76,7.54,23.24,1574.7,45.46,Estimated_Sampled
+Karnataka,Chikkamagaluru,179.16,13.7,184.6,6.96,26.34,530.2,47.95,Estimated_Sampled
+Karnataka,Chitradurga,192.95,18.08,68.63,5.91,24.63,464.5,46.94,Estimated_Sampled
+Karnataka,Dakshina Kannada,143.8,8.6,101.98,7.86,21.29,776.3,83.3,Estimated_Sampled
+Karnataka,Davangere,184.38,11.14,143.06,7.04,24.95,1323.7,68.19,Estimated_Sampled
+Karnataka,Dharwad,179.96,17.29,119.37,7.56,27.03,659,66,Estimated_Sampled
+Karnataka,Gadag,123.75,21.84,93.29,7.03,20.49,764.2,44.23,Estimated_Sampled
+Karnataka,Hassan,87.89,22.43,107.22,5.9,18.87,1031.6,59.81,Estimated_Sampled
+Karnataka,Haveri,197.19,24.72,69.75,5.61,25.86,898.1,88.49,Estimated_Sampled
+Karnataka,Kalaburagi,105.49,10.76,112.7,6.15,18.68,1076.5,64.15,Estimated_Sampled
+Karnataka,Kodagu,106.2,8.61,141.05,7.3,22.77,969.8,87.76,Estimated_Sampled
+Karnataka,Kolar,180.93,29.52,123.5,5.69,20.61,838.8,80.21,Estimated_Sampled
+Karnataka,Koppal,151.79,13.46,106.91,7.36,20.87,703,57.54,Estimated_Sampled
+Karnataka,Mandya,117.45,19.2,77.92,7.03,21.01,1313.2,75.01,Estimated_Sampled
+Karnataka,Mysuru,104.52,25.59,77.87,6.05,24.74,1192.6,85.17,Estimated_Sampled
+Karnataka,Raichur,84.04,21.76,137.44,6.14,21.26,932,48.65,Estimated_Sampled
+Karnataka,Ramanagara,164.22,27.2,198.27,7.7,18.16,1133.2,44.44,Estimated_Sampled
+Karnataka,Shivamogga,169.72,28.97,99.5,7.42,23.74,1092.9,79.58,Estimated_Sampled
+Karnataka,Tumakuru,147.1,25.96,179,5.8,23.95,1154.3,71.34,Estimated_Sampled
+Karnataka,Udupi,147.17,16.26,164.13,6.82,29.33,1216.2,60.69,Estimated_Sampled
+Karnataka,Uttara Kannada,161.08,28.19,185.08,7.6,25.22,946.7,70.35,Estimated_Sampled
+Karnataka,Vijayanagar,167.1,14.54,122.97,7.23,24.24,724.3,43.29,Estimated_Sampled
+Karnataka,Vijayapura,115.66,23.16,77.74,6.29,21.41,465,72.84,Estimated_Sampled
+Karnataka,Yadgir,140.75,27.35,134.11,6.15,26.11,1418.8,89.48,Estimated_Sampled
+Kerala,Alappuzha,185.78,11.39,72.61,7.76,18.14,756.1,74.6,Estimated_Sampled
+Kerala,Ernakulam,147.58,25.4,161.22,6.13,25.39,557.5,43.5,Estimated_Sampled
+Kerala,Idukki,118.68,25.55,92.81,6.44,18.98,699.5,83.15,Estimated_Sampled
+Kerala,Kannur,165.15,13.04,61.83,5.65,28.46,705,62.93,Estimated_Sampled
+Kerala,Kasaragod,138.74,22.32,102.14,6.97,23.86,694.2,78.32,Estimated_Sampled
+Kerala,Kollam,95.19,25.88,189.3,6.41,18.35,899.7,74.1,Estimated_Sampled
+Kerala,Kottayam,82.15,13.74,174.36,7.96,23.95,1477,85.33,Estimated_Sampled
+Kerala,Kozhikode,93,23.38,82.02,7.13,28.08,846.3,51.25,Estimated_Sampled
+Kerala,Malappuram,150.81,25.08,70.01,5.9,20.25,525.5,48.86,Estimated_Sampled
+Kerala,Palakkad,85.07,24.27,182.6,5.88,22.9,902.8,60.02,Estimated_Sampled
+Kerala,Pathanamthitta,197.18,9.13,110.47,6.35,18.54,1060.3,78.58,Estimated_Sampled
+Kerala,Thiruvananthapuram,85.02,17.74,86.05,7.84,25.69,762.1,45.9,Estimated_Sampled
+Kerala,Thrissur,166.73,13.7,151.53,7,28.1,1142.9,51.66,Estimated_Sampled
+Kerala,Wayanad,167.31,21.21,161.26,6.08,29.4,460.5,41.47,Estimated_Sampled
+Ladakh,Kargil,131.95,29.46,178.68,7.32,20.69,749.2,75.02,Estimated_Sampled
+Ladakh,Leh Ladakh,157.53,23.46,177.96,6.62,29.1,881.4,50.08,Estimated_Sampled
+Lakshadweep,Lakshadweep District,129.42,17.76,158.46,5.78,20.32,783.8,57.87,Estimated_Sampled
+Madhya Pradesh,Agar Malwa,137.4,24.87,124.79,5.8,25.57,1389.6,40.26,Estimated_Sampled
+Madhya Pradesh,Alirajpur,138.14,29.13,123.72,6.98,21.42,1022.9,70.95,Estimated_Sampled
+Madhya Pradesh,Anuppur,138.72,14.07,199.62,6.12,27.33,1397.4,51.17,Estimated_Sampled
+Madhya Pradesh,Ashoknagar,172.26,16.27,130.65,7.09,23.9,1287.4,82.74,Estimated_Sampled
+Madhya Pradesh,Balaghat,125.64,17.79,128.03,6.25,27.14,972.4,54.5,Estimated_Sampled
+Madhya Pradesh,Barwani,155.24,23.46,78.87,7.53,22.9,555.2,68.72,Estimated_Sampled
+Madhya Pradesh,Betul,90.28,19.27,107.47,7.41,27.53,617,87.54,Estimated_Sampled
+Madhya Pradesh,Bhind,180.45,20.44,79.51,5.87,23.1,567.3,65.68,Estimated_Sampled
+Madhya Pradesh,Bhopal,151.59,15.2,91,7.67,25.28,458,43.09,Estimated_Sampled
+Madhya Pradesh,Burhanpur,143.11,15.31,90.06,6.51,18.66,1352.4,62.73,Estimated_Sampled
+Madhya Pradesh,Chhatarpur,116.91,23.41,94.72,6.7,24.77,841.8,53.48,Estimated_Sampled
+Madhya Pradesh,Chhindwara,82.51,21.64,122.49,5.56,21.91,515.5,77.71,Estimated_Sampled
+Madhya Pradesh,Damoh,191.25,13.99,164.3,7.86,27.31,521.8,57.21,Estimated_Sampled
+Madhya Pradesh,Datia,140.08,29.26,181.99,5.55,22.78,1321.5,40.33,Estimated_Sampled
+Madhya Pradesh,Dewas,144.82,8.75,145.53,7.44,21.98,492.7,65.73,Estimated_Sampled
+Madhya Pradesh,Dhar,192.57,26.34,151.44,7.54,19.19,1508.1,63.91,Estimated_Sampled
+Madhya Pradesh,Dindori,91.81,10.58,111.16,7.61,26.9,1274.4,68.76,Estimated_Sampled
+Madhya Pradesh,East Nimar,170.01,28.39,164.58,5.87,21.59,900.2,68.39,Estimated_Sampled
+Madhya Pradesh,Guna,164.31,19.78,124.24,7.86,20.43,789.1,60.56,Estimated_Sampled
+Madhya Pradesh,Gwalior,99.2,26.87,120.72,7.82,28.16,1019.1,72,Estimated_Sampled
+Madhya Pradesh,Harda,167.59,22.77,190.67,7.32,27.52,1122.2,43.14,Estimated_Sampled
+Madhya Pradesh,Indore,160.87,11.94,118.06,5.74,25.94,448.6,56.71,Estimated_Sampled
+Madhya Pradesh,Jabalpur,106.22,28.79,149.71,5.68,20.13,509.6,43.01,Estimated_Sampled
+Madhya Pradesh,Jhabua,92.4,21.36,110.22,7.13,23.34,574.8,68.92,Estimated_Sampled
+Madhya Pradesh,Katni,114.06,20.19,181.2,7.96,24.28,1484,43.51,Estimated_Sampled
+Madhya Pradesh,Khargone,137.26,27.95,84.57,7.13,28.89,1365.7,83.61,Estimated_Sampled
+Madhya Pradesh,Mandla,136.31,17.91,83.04,7.15,18.77,552.7,83.64,Estimated_Sampled
+Madhya Pradesh,Mandsaur,112.83,17.01,196.58,6.29,22.15,623.6,62.45,Estimated_Sampled
+Madhya Pradesh,Morena,144.02,25.53,65.13,7.49,25.67,1054,76.12,Estimated_Sampled
+Madhya Pradesh,Narmadapuram,99.21,9.37,168.13,6.69,19.02,906.6,56.03,Estimated_Sampled
+Madhya Pradesh,Narsinghpur,90.45,14.9,90.32,7.8,22.79,464.7,75.65,Estimated_Sampled
+Madhya Pradesh,Neemuch,93.73,15.25,196.99,5.92,20.13,1021.5,81.05,Estimated_Sampled
+Madhya Pradesh,Niwari,99.93,9.76,127.52,6.46,28.58,1466.1,50.85,Estimated_Sampled
+Madhya Pradesh,Panna,150.68,20.55,146.49,6.13,27.63,664.7,70.52,Estimated_Sampled
+Madhya Pradesh,Raisen,134.16,17.86,71.08,7.52,27.67,1282.4,43.96,Estimated_Sampled
+Madhya Pradesh,Rajgarh,123.02,22.52,91.01,7.39,19.28,582.2,55.31,Estimated_Sampled
+Madhya Pradesh,Ratlam,121.18,21.87,85.06,7.75,29.26,860.8,51.43,Estimated_Sampled
+Madhya Pradesh,Rewa,133.66,12.81,81.33,5.83,29.69,918.6,44.59,Estimated_Sampled
+Madhya Pradesh,Sagar,97.08,29.8,69.5,7.31,27.19,524,57.6,Estimated_Sampled
+Madhya Pradesh,Satna,106.19,15.9,186.3,5.62,27.87,1218.1,52.03,Estimated_Sampled
+Madhya Pradesh,Sehore,152.88,17.16,159.85,5.86,18.7,674.8,79.44,Estimated_Sampled
+Madhya Pradesh,Seoni,103.31,29.03,114.38,5.65,22.82,716.1,59.54,Estimated_Sampled
+Madhya Pradesh,Shahdol,114.95,19.2,132.86,5.52,24.73,926.5,46.54,Estimated_Sampled
+Madhya Pradesh,Shajapur,84.46,12.13,114.14,7.32,24.75,1172,70.12,Estimated_Sampled
+Madhya Pradesh,Sheopur,185.76,12.75,156.62,7.09,29.67,1591.3,57.05,Estimated_Sampled
+Madhya Pradesh,Shivpuri,90.89,25.7,80.49,6.19,25.7,1464.7,52.62,Estimated_Sampled
+Madhya Pradesh,Sidhi,177.11,29.91,150.75,6.61,26.02,1438.7,50.99,Estimated_Sampled
+Madhya Pradesh,Singrauli,166.11,12.23,92.26,7.26,26.37,688.2,42.15,Estimated_Sampled
+Madhya Pradesh,Tikamgarh,122.37,21.77,144.05,6.57,21.38,1511.4,72.68,Estimated_Sampled
+Madhya Pradesh,Ujjain,82.62,27.75,112.33,7.75,29.68,1099.8,88.45,Estimated_Sampled
+Madhya Pradesh,Umaria,88.23,20.84,174.9,7.32,24.25,956.5,71.95,Estimated_Sampled
+Madhya Pradesh,Vidisha,154.16,11.12,137.66,7.54,19.8,933.5,77.45,Estimated_Sampled
+Maharashtra,Ahmednagar,182.82,20.95,126.27,7.18,29.37,560.6,41.23,Estimated_Sampled
+Maharashtra,Akola,168.15,22.63,114.68,7.76,20.74,613.3,85.46,Estimated_Sampled
+Maharashtra,Amravati,141.43,21.2,159.25,6.04,26.88,1506.6,72.45,Estimated_Sampled
+Maharashtra,Aurangabad,103.93,26.9,105.71,6.93,29.44,986.3,87.62,Estimated_Sampled
+Maharashtra,Beed,143.84,10.36,171.93,6.92,29.86,944.1,89.55,Estimated_Sampled
+Maharashtra,Bhandara,176.06,18.03,139.64,6.47,24.37,1194.1,43.08,Estimated_Sampled
+Maharashtra,Buldhana,157.76,22.35,141.05,7.3,27.1,1402.8,89.25,Estimated_Sampled
+Maharashtra,Chandrapur,169.56,18.62,77.65,6.58,24.61,956.3,64.95,Estimated_Sampled
+Maharashtra,Dhule,100.38,10.46,171.36,7.55,29.02,1290.2,75.04,Estimated_Sampled
+Maharashtra,Gadchiroli,96.66,8.47,145.5,7.07,23.94,1529.4,49.77,Estimated_Sampled
+Maharashtra,Gondia,179.81,8.53,163,7.01,23.08,1182.6,41.22,Estimated_Sampled
+Maharashtra,Hingoli,164.73,14.69,112.06,7.59,23.08,1171.4,80.34,Estimated_Sampled
+Maharashtra,Jalgaon,138.49,21.32,93.73,5.95,28.25,1263,85.74,Estimated_Sampled
+Maharashtra,Jalna,191.67,17.04,78.48,6.69,25.31,524.3,42.92,Estimated_Sampled
+Maharashtra,Kolhapur,128.96,12.99,131.35,7.41,20.95,1323.3,82.83,Estimated_Sampled
+Maharashtra,Latur,130.21,11.35,80.84,6.58,20.23,423.8,83.86,Estimated_Sampled
+Maharashtra,Mumbai,191.61,26.76,195.45,7.97,29.05,669.1,49.12,Estimated_Sampled
+Maharashtra,Mumbai Suburban,122.6,18.24,70.96,7.67,25.59,876.5,59.31,Estimated_Sampled
+Maharashtra,Nagpur,103.33,26.35,126.66,7.45,22.9,1006.3,70.36,Estimated_Sampled
+Maharashtra,Nanded,172.7,23.26,119.39,7.21,29.69,861.1,46.82,Estimated_Sampled
+Maharashtra,Nandurbar,195.64,17.83,109.74,5.73,22.54,676.2,48.74,Estimated_Sampled
+Maharashtra,Nashik,170.5,20.58,132.01,7.5,22.8,875.8,55.17,Estimated_Sampled
+Maharashtra,Osmanabad,85.62,17.46,178.97,6.17,29.83,1457.8,75.7,Estimated_Sampled
+Maharashtra,Palghar,188.55,16.02,139.9,5.82,28.24,1218.2,64.54,Estimated_Sampled
+Maharashtra,Parbhani,110.72,29.15,197.61,7.98,19.38,1081.9,46.71,Estimated_Sampled
+Maharashtra,Pune,164.54,26.5,188.79,6.7,27.1,915,75.66,Estimated_Sampled
+Maharashtra,Raigad,144.62,24.44,164.87,5.8,18.26,716.5,71.29,Estimated_Sampled
+Maharashtra,Ratnagiri,192.57,23.57,192.36,6.48,24.52,1022.9,89.4,Estimated_Sampled
+Maharashtra,Sangli,83.34,14.31,147.98,6.37,21.99,1171,74.28,Estimated_Sampled
+Maharashtra,Satara,129.11,17.66,94.01,7.46,21.05,480.6,63.47,Estimated_Sampled
+Maharashtra,Sindhudurg,143.56,15.17,125.51,6.24,22.77,504.8,84.73,Estimated_Sampled
+Maharashtra,Solapur,185.59,29.37,97.6,7.01,21.85,1424.4,47.7,Estimated_Sampled
+Maharashtra,Thane,87.37,16.19,117.01,7.59,21.5,1169.8,75.71,Estimated_Sampled
+Maharashtra,Wardha,94.93,21.2,62.58,6.79,26.28,1473.2,78.49,Estimated_Sampled
+Maharashtra,Washim,86.05,14.74,185.06,7.53,25.75,809.3,73.3,Estimated_Sampled
+Maharashtra,Yavatmal,122.4,23.93,126.55,5.71,19.4,1319.6,65.16,Estimated_Sampled
+Manipur,Bishnupur,149.09,24.07,104.2,6.61,23.78,643,72.27,Estimated_Sampled
+Manipur,Chandel,87.05,13.95,149.69,7.44,23.78,519.5,70.55,Estimated_Sampled
+Manipur,Churachandpur,103.95,10.11,151.34,7.55,21.41,1400.7,87.68,Estimated_Sampled
+Manipur,Imphal East,134.89,28.34,198.94,5.92,18.46,1217.9,60.08,Estimated_Sampled
+Manipur,Imphal West,82.4,13.59,114.66,5.62,23.88,621.5,57.01,Estimated_Sampled
+Manipur,Jiribam,91.18,21.01,133.28,6.04,28.99,780.1,40.12,Estimated_Sampled
+Manipur,Kakching,160.9,15.63,168.62,7.67,24.45,587.4,43.27,Estimated_Sampled
+Manipur,Kamjong,89.56,29.04,69.46,6.05,19.64,774.5,86.77,Estimated_Sampled
+Manipur,Kangpokpi,94.98,10.55,145.15,6.85,26.59,1121.7,58.06,Estimated_Sampled
+Manipur,Noney,121.34,10.08,199.35,5.52,28.57,794.5,50.04,Estimated_Sampled
+Manipur,Pherzawl,120.77,26.5,165.06,7.51,19.79,1507.7,88.14,Estimated_Sampled
+Manipur,Senapati,96.89,22.01,81.82,6.56,20.21,859.9,62.31,Estimated_Sampled
+Manipur,Tamenglong,191.35,20.64,154.86,6.32,28.09,1537.9,65.68,Estimated_Sampled
+Manipur,Tengnoupal,102.76,21.14,104.09,6.51,26.24,1150.8,85.58,Estimated_Sampled
+Manipur,Thoubal,166.12,18.45,160.89,7,19.82,457.5,86.18,Estimated_Sampled
+Manipur,Ukhrul,136.94,13.11,174.92,6.52,23.13,1223.7,50.35,Estimated_Sampled
+Meghalaya,Eastern West Khasi Hills,126.74,15.2,168.67,6.71,24.4,518,78.78,Estimated_Sampled
+Meghalaya,East Garo Hills,182.61,25.31,197.32,6.16,20.03,993.1,49.98,Estimated_Sampled
+Meghalaya,East Jaintia Hills,192.71,29.64,160.66,7.78,21.04,543.9,84.48,Estimated_Sampled
+Meghalaya,East Khasi Hills,164.68,20.19,195.12,7.03,23.4,652.9,84.75,Estimated_Sampled
+Meghalaya,North Garo Hills,120.35,19.49,116.08,6.79,21.81,401.9,44.3,Estimated_Sampled
+Meghalaya,Ri Bhoi,133.21,15.95,180.59,6.73,18.32,1561.4,56.03,Estimated_Sampled
+Meghalaya,South Garo Hills,188.8,13.68,95.36,6.41,28.05,442.8,66.61,Estimated_Sampled
+Meghalaya,South West Garo Hills,194.13,19.6,158.94,5.88,19.78,514.1,57.72,Estimated_Sampled
+Meghalaya,South West Khasi Hills,143.57,16.52,99.96,6.1,18.66,543.2,85.86,Estimated_Sampled
+Meghalaya,West Garo Hills,159.96,22.16,153.88,7.15,25.99,1557.8,72.01,Estimated_Sampled
+Meghalaya,West Jaintia Hills,93.95,26.88,165.15,5.83,23.85,498.6,54.16,Estimated_Sampled
+Meghalaya,West Khasi Hills,169.41,28.22,106.2,6.9,18.01,1477.5,82.13,Estimated_Sampled
+Mizoram,Aizawl,99.64,16.67,175.35,7.39,26.06,516.5,77.49,Estimated_Sampled
+Mizoram,Champhai,125.77,8.78,145.2,7.16,22.29,1310.4,75.59,Estimated_Sampled
+Mizoram,Hnahthial,101.44,23.98,74.92,6.77,28.7,1005,61.57,Estimated_Sampled
+Mizoram,Khawzawl,85.62,24.74,148.41,6.81,26.92,1325.4,73.05,Estimated_Sampled
+Mizoram,Kolasib,117.56,19.89,132.71,7.52,24.39,1161.6,57.28,Estimated_Sampled
+Mizoram,Lawngtlai,131.15,27.87,72.86,7.95,27.77,831.9,55.9,Estimated_Sampled
+Mizoram,Lunglei,148.38,20.75,63.4,7.17,21.71,880.4,73.93,Estimated_Sampled
+Mizoram,Mamit,154.57,26.01,131.98,7.12,28.48,512.7,47.26,Estimated_Sampled
+Mizoram,Saiha,108.58,16.49,108.01,5.94,28.92,645.8,89.23,Estimated_Sampled
+Mizoram,Saitual,122.46,23.1,103.17,6.58,18.22,905.5,63.4,Estimated_Sampled
+Mizoram,Serchhip,128.72,23.89,153.14,5.64,25.95,943.3,50.68,Estimated_Sampled
+Nagaland,Chumoukedima,159.67,15.87,82.56,6.35,25.13,1414.1,85.7,Estimated_Sampled
+Nagaland,Dimapur,178.54,26.5,122.66,5.89,19.08,840.7,76.71,Estimated_Sampled
+Nagaland,Kiphire,123.51,11.71,142.15,7.46,21.05,1554.3,56.85,Estimated_Sampled
+Nagaland,Kohima,151.49,23.8,195.05,7.99,23.94,929,41.16,Estimated_Sampled
+Nagaland,Longleng,156.3,29.24,120.17,5.8,18.84,643.1,64.48,Estimated_Sampled
+Nagaland,Mokokchung,190.77,27.14,163.77,7.39,27.06,1167.4,68.86,Estimated_Sampled
+Nagaland,Mon,109.99,25.25,105.83,7.19,24.08,1105.9,66.71,Estimated_Sampled
+Nagaland,Noklak,152.07,17.49,119.09,5.86,19.25,525,83.74,Estimated_Sampled
+Nagaland,Peren,139.02,28.22,113.46,6.12,22.45,1375.6,44.58,Estimated_Sampled
+Nagaland,Phek,147.31,11.42,112.08,7.47,25.66,1525.2,63.76,Estimated_Sampled
+Nagaland,Tseminyu,139.17,20.74,123.53,5.55,23.38,1163.2,52.94,Estimated_Sampled
+Nagaland,Tuensang,134.37,10.05,123.5,6.25,27.67,434.2,44.92,Estimated_Sampled
+Nagaland,Wokha,164.46,28.81,134.07,7.25,24.86,1146.5,64.59,Estimated_Sampled
+Nagaland,Zunheboto,189.34,12.27,181.6,7.84,25.77,1032.2,80.72,Estimated_Sampled
+Odisha,Anugul,195.44,11,121.97,6.84,29.23,1233.9,71.25,Estimated_Sampled
+Odisha,Balangir,122.05,22.57,161.21,7.88,25.87,931.3,55.79,Estimated_Sampled
+Odisha,Baleshwar,196.05,16.54,139.49,6.76,24.79,606.9,84.25,Estimated_Sampled
+Odisha,Bargarh,106.43,9.39,171.55,7.16,24.19,1576.7,76.17,Estimated_Sampled
+Odisha,Bhadrak,187.92,23.22,82.67,7.09,20.35,505.1,71.09,Estimated_Sampled
+Odisha,Boudh,111.86,25.74,61.81,7.02,22.94,1178.5,85.82,Estimated_Sampled
+Odisha,Cuttack,144.31,16.72,74.2,5.54,20.4,1021.5,51.64,Estimated_Sampled
+Odisha,Deogarh,139.3,25.14,187.21,7.87,18.01,1576,82.75,Estimated_Sampled
+Odisha,Dhenkanal,117.5,17.64,194.32,7.07,18.95,1206.6,87.11,Estimated_Sampled
+Odisha,Gajapati,108.24,27.87,176.54,7.34,22.57,605.5,47.66,Estimated_Sampled
+Odisha,Ganjam,157.99,18.05,81.55,7.52,25.26,1580.7,58.34,Estimated_Sampled
+Odisha,Jagatsinghapur,162.4,17.12,166.1,6.59,22.52,1548.6,83.17,Estimated_Sampled
+Odisha,Jajapur,113.15,28.28,63.67,5.86,18.17,1179.7,86.41,Estimated_Sampled
+Odisha,Jharsuguda,102.16,16.26,100.2,7.32,22.79,1060.4,79.48,Estimated_Sampled
+Odisha,Kalahandi,94.14,23.62,123.99,6.94,26.56,971.3,50.66,Estimated_Sampled
+Odisha,Kandhamal,167.13,14.05,189.47,7.36,20.91,1088.5,42.09,Estimated_Sampled
+Odisha,Kendrapara,114.55,24.01,182.65,7.09,21.07,1334.5,50.64,Estimated_Sampled
+Odisha,Kendujhar,146.58,19.44,190.18,5.97,23.41,1003.6,87.49,Estimated_Sampled
+Odisha,Khordha,132.43,12.24,165.38,6.98,19.94,1270.3,63.12,Estimated_Sampled
+Odisha,Koraput,165.95,17.74,162.28,5.58,26.66,986.3,52.93,Estimated_Sampled
+Odisha,Malkangiri,106.02,15.8,111.69,6.46,29.26,908.4,63.22,Estimated_Sampled
+Odisha,Mayurbhanj,146.26,23.74,147.67,7.83,23.4,593.2,58.8,Estimated_Sampled
+Odisha,Nabarangpur,190.25,23.78,148.48,6.48,20.46,999.9,72.81,Estimated_Sampled
+Odisha,Nayagarh,185.04,18.69,196.35,6.95,23.22,1084.3,71.8,Estimated_Sampled
+Odisha,Nuapada,192.39,22.06,79.25,7.5,29.39,560.8,62.49,Estimated_Sampled
+Odisha,Puri,107.8,22.39,85.42,5.99,27.28,1534.5,67.46,Estimated_Sampled
+Odisha,Rayagada,174.5,27.88,127.03,7.84,29.07,722.4,84.97,Estimated_Sampled
+Odisha,Sambalpur,143.21,16.18,134.18,6.25,23.07,1200.4,81.67,Estimated_Sampled
+Odisha,Sonepur,146.54,23.78,109.34,5.67,29.4,541.9,43.36,Estimated_Sampled
+Odisha,Sundargarh,174.86,11.32,79.27,6.15,18.29,1162.7,83.09,Estimated_Sampled
+Puducherry,Karaikal,165.11,28.31,102.18,7.08,18.01,1457,62.73,Estimated_Sampled
+Puducherry,Mahe,128.94,29.91,110.47,6.76,20.82,700,65.45,Estimated_Sampled
+Puducherry,Pondicherry,141.96,17.36,106.61,5.87,24.93,523.3,58.06,Estimated_Sampled
+Puducherry,Yanam,194.71,17.76,68.11,5.63,28.8,1194.6,57.11,Estimated_Sampled
+Punjab,Amritsar,141.65,25.12,111.03,6.69,22.25,1531.8,51.78,Estimated_Sampled
+Punjab,Barnala,84.22,11.05,74.82,7.57,18.48,881.9,42.89,Estimated_Sampled
+Punjab,Bathinda,109.67,18.68,147.64,6.23,22.25,732.6,59.62,Estimated_Sampled
+Punjab,Faridkot,162.51,20.79,69.45,6.59,29.16,597.3,51.07,Estimated_Sampled
+Punjab,Fatehgarh Sahib,162.47,10.32,69.61,7.31,25.56,1170.2,77.61,Estimated_Sampled
+Punjab,Fazilka,93.66,21,155.45,7.94,22.47,1157.5,89.5,Estimated_Sampled
+Punjab,Ferozepur,192.51,23.02,146.24,5.78,26.83,1490.3,63.92,Estimated_Sampled
+Punjab,Gurdaspur,94.46,9,144.7,5.85,23.32,966.1,84.36,Estimated_Sampled
+Punjab,Hoshiarpur,162.17,10.16,188,6.06,25.66,1337.3,47.62,Estimated_Sampled
+Punjab,Jalandhar,193.45,13.95,199.48,7.2,29.62,1291.6,74.4,Estimated_Sampled
+Punjab,Kapurthala,134.24,22.56,151.96,7.69,29.12,1158.6,64.57,Estimated_Sampled
+Punjab,Ludhiana,185.97,12.29,103.54,6.86,25.73,536,63.51,Estimated_Sampled
+Punjab,Malerkotla,120.49,16.53,81.38,6.4,22.7,419.1,67.57,Estimated_Sampled
+Punjab,Mansa,92.76,24.18,76.51,6.64,25.92,1508.5,80.95,Estimated_Sampled
+Punjab,Moga,124.15,22.09,118.07,7.59,20.36,1016.9,47.56,Estimated_Sampled
+Punjab,Pathankot,109.14,18.91,103.35,6.79,26.91,1038.4,45.03,Estimated_Sampled
+Punjab,Patiala,176.55,19.16,188.82,6.42,25.68,1287.4,62.94,Estimated_Sampled
+Punjab,Rupnagar,100.67,11.86,91.2,6.69,28.52,1399.9,69.76,Estimated_Sampled
+Punjab,Sangrur,137.38,25.59,118.96,5.96,18.24,751,69.23,Estimated_Sampled
+Punjab,S.A.S Nagar,163.62,16.89,142.9,5.69,29.76,1204.5,48.88,Estimated_Sampled
+Punjab,Shahid Bhagat Singh Nagar,158.67,22.67,169.5,6.69,22.84,1363.2,50.28,Estimated_Sampled
+Punjab,Sri Muktsar Sahib,183.03,20.5,103.73,7.78,22.14,1361.6,58.1,Estimated_Sampled
+Punjab,Tarn Taran,185.37,13.64,99.84,7.27,22.21,1575.6,77.06,Estimated_Sampled
+Rajasthan,Ajmer,182.95,20.92,71.14,6,18.14,1134.9,75.99,Estimated_Sampled
+Rajasthan,Alwar,185.29,8.47,108.79,6.89,20.75,462.4,72.63,Estimated_Sampled
+Rajasthan,Banswara,153.33,12.88,91.19,6.5,24.72,412.4,72.89,Estimated_Sampled
+Rajasthan,Baran,95.92,16.67,117.98,6.48,26.03,1435.7,79.97,Estimated_Sampled
+Rajasthan,Barmer,155.1,9.65,82.89,6.14,21.98,1234,85.05,Estimated_Sampled
+Rajasthan,Bharatpur,127.94,19.58,183.99,6.08,29.94,1294.9,49.3,Estimated_Sampled
+Rajasthan,Bhilwara,86.55,23.32,81.27,6.98,20.7,1595.2,81.67,Estimated_Sampled
+Rajasthan,Bikaner,165.54,16.09,157.3,6.99,26.16,1565,50.02,Estimated_Sampled
+Rajasthan,Bundi,164.18,23.28,104.26,7.3,19.28,1456.5,42.61,Estimated_Sampled
+Rajasthan,Chittorgarh,161.21,16.38,78.22,6.35,18.84,1278.7,45.85,Estimated_Sampled
+Rajasthan,Churu,135.15,10.21,82.15,6.18,18.88,552,45,Estimated_Sampled
+Rajasthan,Dausa,163.16,12.49,187.49,7.73,20.33,1115.7,48.13,Estimated_Sampled
+Rajasthan,Dholpur,136.84,21.57,108.69,6.42,29.52,735.9,83.56,Estimated_Sampled
+Rajasthan,Dungarpur,101.52,22.19,113.14,5.82,28.2,1295.1,83.63,Estimated_Sampled
+Rajasthan,Ganganagar,125.69,23.25,127.57,6.2,19.78,826.8,40.24,Estimated_Sampled
+Rajasthan,Hanumangarh,122.26,22.97,79.66,7.8,27.4,1345.9,75.91,Estimated_Sampled
+Rajasthan,Jaipur,101.64,27.47,115.86,7.3,26.04,469.6,84.86,Estimated_Sampled
+Rajasthan,Jaisalmer,176.41,23.01,83.42,5.98,19.77,968.1,58.21,Estimated_Sampled
+Rajasthan,Jalore,165.51,10.12,150.91,7.44,20.39,430.4,87.02,Estimated_Sampled
+Rajasthan,Jhalawar,139.03,20.42,140.15,5.87,29.5,1414.9,78.95,Estimated_Sampled
+Rajasthan,Jhunjhunu,100.72,10.49,187.66,7.55,28.89,1106.4,86.01,Estimated_Sampled
+Rajasthan,Jodhpur,136.18,23.32,135.07,7.3,20.87,1215.6,41.41,Estimated_Sampled
+Rajasthan,Karauli,146.33,20.3,185.33,7.06,25.45,1424.5,81.08,Estimated_Sampled
+Rajasthan,Kota,176.85,23.05,121.85,7,25.06,1227,66.94,Estimated_Sampled
+Rajasthan,Nagaur,109.01,23.26,147.76,7.11,25.72,1414.3,85.55,Estimated_Sampled
+Rajasthan,Pali,167.23,12.34,94.51,7.54,24.89,1049.9,51.62,Estimated_Sampled
+Rajasthan,Pratapgarh,129.37,18.72,184.02,7.13,27.3,669.6,55.64,Estimated_Sampled
+Rajasthan,Rajsamand,196.48,14.09,122.11,6.85,22.01,1091.7,57.92,Estimated_Sampled
+Rajasthan,Sawai Madhopur,172.67,21.36,188.74,5.68,28.2,831.1,44.35,Estimated_Sampled
+Rajasthan,Sikar,195.82,12.76,158.7,7.94,24.97,639.7,83.84,Estimated_Sampled
+Rajasthan,Sirohi,131.33,10.94,107.77,7.21,23.07,1293.4,86.26,Estimated_Sampled
+Rajasthan,Tonk,167.78,10.36,94.48,7.18,20.52,1017.1,47.64,Estimated_Sampled
+Rajasthan,Udaipur,137.97,21.33,122.15,5.91,26.26,835.6,53.69,Estimated_Sampled
+Sikkim,Gangtok,108.03,8.2,174.99,7.97,21.55,482.4,48.35,Estimated_Sampled
+Sikkim,Gyalshing,164.99,13.05,107.48,6.79,25.73,1019.4,59.52,Estimated_Sampled
+Sikkim,Mangan,159.6,29.88,126.06,6.54,27.22,1179.4,47.29,Estimated_Sampled
+Sikkim,Namchi,163.26,18.81,75.03,7.92,18.16,1405.7,71.71,Estimated_Sampled
+Sikkim,Pakyong,96.56,24.46,137.84,6.3,21.12,489.3,74.41,Estimated_Sampled
+Sikkim,Soreng,163.24,10.96,145.88,7.33,21.67,760.9,52.53,Estimated_Sampled
+Tamil Nadu,Ariyalur,167.69,14.45,64.25,6.31,22.59,1065.9,83.31,Estimated_Sampled
+Tamil Nadu,Chengalpattu,194.1,29.11,86.68,6.76,26.17,1579.7,63.14,Estimated_Sampled
+Tamil Nadu,Chennai,142.14,23.96,149.52,7.51,22.01,427.8,78.88,Estimated_Sampled
+Tamil Nadu,Coimbatore,149.72,19.97,88.54,5.95,21.35,1497.1,83.62,Estimated_Sampled
+Tamil Nadu,Cuddalore,169.69,19.22,138.89,6.6,29.54,758.6,69.61,Estimated_Sampled
+Tamil Nadu,Dharmapuri,151.87,10.94,131.92,5.9,20.96,1296.5,60.19,Estimated_Sampled
+Tamil Nadu,Dindigul,193.41,27.33,74.84,5.83,28.01,456,45.31,Estimated_Sampled
+Tamil Nadu,Erode,127.15,15.56,114.78,6.06,22.84,1001.1,44.7,Estimated_Sampled
+Tamil Nadu,Kallakurichi,173.08,8.45,112.8,6.83,24.65,658.7,62.72,Estimated_Sampled
+Tamil Nadu,Kanchipuram,85.48,8.78,180.63,5.69,22.2,570.1,84.22,Estimated_Sampled
+Tamil Nadu,Kanniyakumari,151.14,11.1,118.66,6.25,26.41,997.5,48.76,Estimated_Sampled
+Tamil Nadu,Karur,157.12,9.09,75.63,7.13,18.45,795.8,85.32,Estimated_Sampled
+Tamil Nadu,Krishnagiri,141.99,14.9,163.96,6.57,18.7,872.8,76.78,Estimated_Sampled
+Tamil Nadu,Madurai,99.34,11.44,148.83,7.77,27.91,407.1,81.61,Estimated_Sampled
+Tamil Nadu,Mayiladuthurai,122.13,18.72,74.53,7.22,19.35,844.5,52.73,Estimated_Sampled
+Tamil Nadu,Nagapattinam,157.91,20.61,106.42,5.81,27.08,1193.6,87.01,Estimated_Sampled
+Tamil Nadu,Namakkal,185.06,29.47,90.5,6.29,24.94,660,58.26,Estimated_Sampled
+Tamil Nadu,Perambalur,198.37,19.59,177.34,6.38,20.5,1070.9,68.72,Estimated_Sampled
+Tamil Nadu,Pudukkottai,123.11,13,184.4,6.62,27.04,1157.4,43.01,Estimated_Sampled
+Tamil Nadu,Ramanathapuram,117.41,18.7,83.67,5.82,21.07,790.9,61.91,Estimated_Sampled
+Tamil Nadu,Ranipet,174.96,20.53,84.17,8,21.42,1359.2,63.93,Estimated_Sampled
+Tamil Nadu,Salem,130.28,26.29,169.3,7.49,25.22,1223.3,59.96,Estimated_Sampled
+Tamil Nadu,Sivaganga,137.02,25.95,162.84,6.83,24.36,1383.9,65.22,Estimated_Sampled
+Tamil Nadu,Tenkasi,170.25,11.83,135.43,7.88,18.31,1429.5,64.84,Estimated_Sampled
+Tamil Nadu,Thanjavur,122.25,28.7,60.71,6.39,19.98,527.8,76.17,Estimated_Sampled
+Tamil Nadu,Theni,144.72,10.52,193.92,7.05,29.09,911.3,72.36,Estimated_Sampled
+Tamil Nadu,The Nilgiris,138.4,11.79,167.91,6.52,23.43,413.3,69.15,Estimated_Sampled
+Tamil Nadu,Thiruvallur,136.39,18,174.1,6.5,26.7,1549.2,48.15,Estimated_Sampled
+Tamil Nadu,Thiruvarur,187.42,17.51,122.39,7.93,23.99,496.3,45.42,Estimated_Sampled
+Tamil Nadu,Tiruchirappalli,90.98,12.53,104.36,7.37,29.34,1559.6,47.99,Estimated_Sampled
+Tamil Nadu,Tirunelveli,147.99,19.14,193.06,7.86,21.06,857.5,72.56,Estimated_Sampled
+Tamil Nadu,Tirupathur,163.84,21.87,136.26,7.64,26.77,865.9,70.47,Estimated_Sampled
+Tamil Nadu,Tiruppur,139.07,9.41,113.8,7.88,26.53,1126.8,47.54,Estimated_Sampled
+Tamil Nadu,Tiruvannamalai,199.56,19.89,86.96,7.16,19.7,1562.7,66.18,Estimated_Sampled
+Tamil Nadu,Tuticorin,147.36,12.86,172.45,6.49,21.78,498.5,86.37,Estimated_Sampled
+Tamil Nadu,Vellore,104.92,24.49,169.92,6.69,22.75,612.1,60.21,Estimated_Sampled
+Tamil Nadu,Villupuram,117.8,28.06,144.92,6.3,21.61,1003.3,76.32,Estimated_Sampled
+Tamil Nadu,Virudhunagar,196.41,22.82,148.41,7.35,18.17,965.6,88.05,Estimated_Sampled
+Telangana,Adilabad,123.44,13.58,121.27,6.14,29.36,434.5,85.51,Estimated_Sampled
+Telangana,Bhadradri Kothagudem,141.26,12.78,160.18,6.2,18.64,1127.5,88.79,Estimated_Sampled
+Telangana,Hanumakonda,116.22,23.83,95.61,6.62,19.28,1521.1,84.22,Estimated_Sampled
+Telangana,Hyderabad,107.78,25.07,68.11,6.11,22.71,691.6,89.1,Estimated_Sampled
+Telangana,Jagitial,178.56,22.56,165.09,6.47,23.86,402.3,58.19,Estimated_Sampled
+Telangana,Jangoan,185.41,25.69,139.42,7.18,21.43,661.8,71.68,Estimated_Sampled
+Telangana,Jayashankar Bhupalapally,125.04,22.16,66.35,6.65,21.32,1318.2,73.26,Estimated_Sampled
+Telangana,Jogulamba Gadwal,144.19,21.32,173.62,6.55,27.25,1483.1,67.61,Estimated_Sampled
+Telangana,Kamareddy,150.81,19.77,137.55,6.28,23.62,1044.2,68.48,Estimated_Sampled
+Telangana,Karimnagar,97.3,12.85,187.74,7.5,28.65,448.9,61.53,Estimated_Sampled
+Telangana,Khammam,94.89,11.89,183.83,7.47,24.17,537.1,64.19,Estimated_Sampled
+Telangana,Kumuram Bheem Asifabad,141.36,9.36,99.13,7.87,23.17,850,62.88,Estimated_Sampled
+Telangana,Mahabubabad,166.29,17.46,132.04,7.35,26.89,883.9,41.03,Estimated_Sampled
+Telangana,Mahabubnagar,135.2,28.13,89.1,7.96,19.96,1482.2,53.76,Estimated_Sampled
+Telangana,Mancherial,167.83,18,130.87,7.05,22.03,638.7,45.81,Estimated_Sampled
+Telangana,Medak,140.09,16.83,127.51,5.97,25.17,1590.2,88.79,Estimated_Sampled
+Telangana,Medchal Malkajgiri,116.75,19.7,154.69,7.74,28.27,949.8,72.5,Estimated_Sampled
+Telangana,Mulugu,122.06,28.09,117.47,7.32,18.8,875.9,81.92,Estimated_Sampled
+Telangana,Nagarkurnool,89.43,26.02,199.22,6.56,21.61,1019.8,51.72,Estimated_Sampled
+Telangana,Nalgonda,97.82,23.58,199.08,7.78,27.44,525.3,51.04,Estimated_Sampled
+Telangana,Narayanpet,121.8,13.23,62.35,5.78,18.89,685.9,65.66,Estimated_Sampled
+Telangana,Nirmal,89.46,20.12,113.04,7.54,20.76,553.9,43.67,Estimated_Sampled
+Telangana,Nizamabad,82.8,21.84,158.08,6.27,21.07,585.8,43.83,Estimated_Sampled
+Telangana,Peddapalli,182.55,17.95,194.86,6.24,20.1,1245.9,41.6,Estimated_Sampled
+Telangana,Rajanna Sircilla,168.86,24.8,171.71,5.74,25.71,1091.7,51.78,Estimated_Sampled
+Telangana,Ranga Reddy,111.47,24.01,121.59,6.54,19.03,1099.5,63.34,Estimated_Sampled
+Telangana,Sangareddy,80.03,12.18,65.28,7.85,20.55,809.4,40.63,Estimated_Sampled
+Telangana,Siddipet,189.55,24.22,129.86,5.92,26.16,632.1,45.03,Estimated_Sampled
+Telangana,Suryapet,102.51,17.57,121.17,5.76,28.43,1197.5,77.27,Estimated_Sampled
+Telangana,Vikarabad,192.14,15.17,75.45,7.05,23.1,1553,77.37,Estimated_Sampled
+Telangana,Wanaparthy,134.53,26.69,189.81,7.63,20.41,1118.4,77.82,Estimated_Sampled
+Telangana,Warangal,127.22,11.68,127.25,5.79,19.89,1073.2,73.97,Estimated_Sampled
+Telangana,Yadadri Bhuvanagiri,163.79,21.95,105.74,7.52,26.35,818.4,47.13,Estimated_Sampled
+The Dadra And Nagar Haveli And Daman And Diu,Dadra And Nagar Haveli,97.27,28.89,83.66,7.69,20.58,949.1,59.36,Estimated_Sampled
+The Dadra And Nagar Haveli And Daman And Diu,Daman,138.88,20.54,140.61,7.95,28.42,568,65.37,Estimated_Sampled
+The Dadra And Nagar Haveli And Daman And Diu,Diu,82.11,18.28,177.08,5.51,27.71,1523.8,46.14,Estimated_Sampled
+Tripura,Dhalai,188.9,29.34,86.67,6.65,26.01,1465.5,55.91,Estimated_Sampled
+Tripura,Gomati,135.86,25.29,179.02,6.54,22.55,550.3,63.19,Estimated_Sampled
+Tripura,Khowai,166.05,20.73,142.11,7.65,25.96,1079,41.25,Estimated_Sampled
+Tripura,North Tripura,159.27,25.49,191.1,7.61,21.26,1216.4,45.68,Estimated_Sampled
+Tripura,Sepahijala,152.96,27.71,182.65,7.88,22.65,745.5,53.23,Estimated_Sampled
+Tripura,South Tripura,182.16,20.9,198.08,7.76,29.12,1525.9,76.04,Estimated_Sampled
+Tripura,Unakoti,132.45,17.37,144.88,7.97,24.77,1438.7,57.2,Estimated_Sampled
+Tripura,West Tripura,80.99,14.3,97.64,7.11,25.69,721.7,89.11,Estimated_Sampled
+Uttarakhand,Almora,110.32,25.53,183.58,7.32,21.87,660,67.54,Estimated_Sampled
+Uttarakhand,Bageshwar,101.63,9.42,94.17,5.96,20.24,686.5,42.88,Estimated_Sampled
+Uttarakhand,Chamoli,105.32,8.36,116.54,7.34,27.74,967.8,71.67,Estimated_Sampled
+Uttarakhand,Champawat,193.09,12.13,187.06,7.77,24.09,488.3,65.85,Estimated_Sampled
+Uttarakhand,Dehradun,197.79,11.1,83.6,6.97,19.55,1320.2,53.77,Estimated_Sampled
+Uttarakhand,Haridwar,129.26,21.74,121.53,7.78,24.39,1387.3,40.01,Estimated_Sampled
+Uttarakhand,Nainital,89.42,22.06,67.06,7.12,27.46,774.2,62.72,Estimated_Sampled
+Uttarakhand,Pauri Garhwal,185.44,14.83,111.78,7.7,25.12,1198,87.9,Estimated_Sampled
+Uttarakhand,Pithoragarh,162.27,22.48,126.36,6.91,23.85,1268,60.41,Estimated_Sampled
+Uttarakhand,Rudra Prayag,90.51,17.36,168.44,7.24,19.08,896.6,85.04,Estimated_Sampled
+Uttarakhand,Tehri Garhwal,163.13,22.22,159.58,7.43,27.31,1134.5,51.57,Estimated_Sampled
+Uttarakhand,Udam Singh Nagar,188.79,13.72,123.08,7.92,29.62,1334.5,52.64,Estimated_Sampled
+Uttarakhand,Uttar Kashi,109.93,21.55,79.02,7.49,24.72,967.7,61.61,Estimated_Sampled
+Uttar Pradesh,Agra,166.88,9.52,95.41,7.02,18.38,1060.1,75.87,Estimated_Sampled
+Uttar Pradesh,Aligarh,128.78,13.28,130.67,7.88,25.76,1206.9,54.14,Estimated_Sampled
+Uttar Pradesh,Ambedkar Nagar,170.51,21.6,135.61,6.13,19.82,1494,74.07,Estimated_Sampled
+Uttar Pradesh,Amethi,97.77,29.2,75.8,6.24,22.93,970.4,86.29,Estimated_Sampled
+Uttar Pradesh,Amroha,151.82,24.47,143.19,7.56,20.58,785.5,62.59,Estimated_Sampled
+Uttar Pradesh,Auraiya,102.98,27.16,122.98,5.61,24.05,1489,46.46,Estimated_Sampled
+Uttar Pradesh,Ayodhya,82.05,27.61,80.49,7.02,25.5,823.2,80.3,Estimated_Sampled
+Uttar Pradesh,Azamgarh,141.42,22.75,167.49,6.27,24.86,485.1,70.18,Estimated_Sampled
+Uttar Pradesh,Baghpat,137.65,11.77,197.04,7.83,22.25,780.2,71.87,Estimated_Sampled
+Uttar Pradesh,Bahraich,175.42,23.35,164.88,7.27,26.94,590.5,79.17,Estimated_Sampled
+Uttar Pradesh,Ballia,130.4,19.15,116.31,7.84,27.35,1444.1,41.22,Estimated_Sampled
+Uttar Pradesh,Balrampur,192.46,19.77,197.05,6.04,28.8,614.9,40.19,Estimated_Sampled
+Uttar Pradesh,Banda,86.31,21.61,113.41,7.25,21.44,1134.1,48.47,Estimated_Sampled
+Uttar Pradesh,Barabanki,188.71,17.78,119.17,6.07,26.3,1577.1,54.16,Estimated_Sampled
+Uttar Pradesh,Bareilly,168.27,25.65,157.59,6.42,27.02,913.6,59.45,Estimated_Sampled
+Uttar Pradesh,Basti,155.83,16.79,175.96,7.03,26.97,1247.1,67.76,Estimated_Sampled
+Uttar Pradesh,Bhadohi,167.76,19.09,160.18,7.26,18.57,470.2,78.99,Estimated_Sampled
+Uttar Pradesh,Bijnor,180.9,19.32,145.33,7.2,24.58,1441,52.46,Estimated_Sampled
+Uttar Pradesh,Budaun,183.59,19.83,153.14,6.03,19.64,517.8,88.42,Estimated_Sampled
+Uttar Pradesh,Bulandshahr,127.83,23.96,71.91,5.82,28.41,1404.3,77.92,Estimated_Sampled
+Uttar Pradesh,Chandauli,119.99,13.59,139.06,6.65,26.32,799.7,56.37,Estimated_Sampled
+Uttar Pradesh,Chitrakoot,127.43,14.59,192.04,7.34,22.89,654.8,78.17,Estimated_Sampled
+Uttar Pradesh,Deoria,128.45,26.79,154.22,6.17,28.69,743.2,54.88,Estimated_Sampled
+Uttar Pradesh,Etah,119.4,12.68,133.89,7.72,24.33,1064.4,63.71,Estimated_Sampled
+Uttar Pradesh,Etawah,100.23,8.17,88.3,7.14,19.63,809,50.49,Estimated_Sampled
+Uttar Pradesh,Farrukhabad,144.64,20.3,134.83,6.67,19.2,1505.5,82.37,Estimated_Sampled
+Uttar Pradesh,Fatehpur,165.97,25.95,72.94,6.74,24.34,1043.5,46.95,Estimated_Sampled
+Uttar Pradesh,Firozabad,94.09,15.35,145.8,7.38,20.7,1397.8,74.93,Estimated_Sampled
+Uttar Pradesh,Gautam Buddha Nagar,116.38,25.33,154.54,5.84,22.39,1573.9,42.25,Estimated_Sampled
+Uttar Pradesh,Ghaziabad,113.33,9.77,188.06,6.77,25.09,1121.8,45.2,Estimated_Sampled
+Uttar Pradesh,Ghazipur,126.06,12.41,83.09,5.79,28.25,923.4,82.37,Estimated_Sampled
+Uttar Pradesh,Gonda,89.96,23.14,165.57,5.86,23.49,1309.4,72.52,Estimated_Sampled
+Uttar Pradesh,Gorakhpur,185.16,26.08,73.26,6.82,25.4,1220.8,88.83,Estimated_Sampled
+Uttar Pradesh,Hamirpur,185.42,29.86,81.51,7.67,28.83,516.1,52.9,Estimated_Sampled
+Uttar Pradesh,Hapur,161.77,13.46,80.01,6.32,24.56,1134.4,83.77,Estimated_Sampled
+Uttar Pradesh,Hardoi,118.77,9.97,125.04,6.26,28.61,1188.5,69.99,Estimated_Sampled
+Uttar Pradesh,Hathras,82.07,8.85,113.08,6.43,25.67,909.5,69.71,Estimated_Sampled
+Uttar Pradesh,Jalaun,183.48,8.28,102.01,6.87,22.49,1365.9,60.61,Estimated_Sampled
+Uttar Pradesh,Jaunpur,153.27,9.66,135.28,5.87,29.41,608.1,70.18,Estimated_Sampled
+Uttar Pradesh,Jhansi,141.5,10.53,147.49,5.78,28.09,1093.1,50.44,Estimated_Sampled
+Uttar Pradesh,Kannauj,109.13,8.48,137.39,6.47,20.36,1281.1,64.67,Estimated_Sampled
+Uttar Pradesh,Kanpur Dehat,133.9,28.09,161.59,6.37,22.44,780.6,47.46,Estimated_Sampled
+Uttar Pradesh,Kanpur Nagar,166.81,11.31,151.81,6.4,21.15,1282.7,55.64,Estimated_Sampled
+Uttar Pradesh,Kasganj,156.2,8.99,168.74,7.87,23,1012,61.42,Estimated_Sampled
+Uttar Pradesh,Kaushambi,147.78,28.48,139.84,6.32,22.9,431.5,89.37,Estimated_Sampled
+Uttar Pradesh,Kheri,177.94,11.18,89.81,6.4,25.46,1022.7,59.95,Estimated_Sampled
+Uttar Pradesh,Kushi Nagar,184.42,16.82,86.2,7.33,27.04,1227.5,51.5,Estimated_Sampled
+Uttar Pradesh,Lalitpur,127.82,13.74,146.31,5.82,29.58,875.8,55.68,Estimated_Sampled
+Uttar Pradesh,Lucknow,132.38,15.22,105,5.67,22.77,1379.1,56.23,Estimated_Sampled
+Uttar Pradesh,Maharajganj,132.58,16.23,75.22,6.55,22.12,1260.3,80.42,Estimated_Sampled
+Uttar Pradesh,Mahoba,128.67,18.57,114.51,7.91,18.72,535.5,80.57,Estimated_Sampled
+Uttar Pradesh,Mainpuri,181.47,16,86.52,5.91,27.26,683.5,69.83,Estimated_Sampled
+Uttar Pradesh,Mathura,145.59,20.49,138.6,6,22.14,982.9,83.93,Estimated_Sampled
+Uttar Pradesh,Mau,180.66,16.9,81.6,7.2,23.43,1492.3,75.15,Estimated_Sampled
+Uttar Pradesh,Meerut,150.55,27.9,71.41,7.12,18.36,662.9,41.43,Estimated_Sampled
+Uttar Pradesh,Mirzapur,166.95,10.39,187.97,6.59,26.79,1057.1,58.09,Estimated_Sampled
+Uttar Pradesh,Moradabad,187.13,18.99,119.48,7.8,22.28,1329.9,43.4,Estimated_Sampled
+Uttar Pradesh,Muzaffarnagar,162.45,28.41,77.08,6.75,27.68,1149.8,83.57,Estimated_Sampled
+Uttar Pradesh,Pilibhit,101.78,10.15,154.46,6.3,23.84,1586.3,53.65,Estimated_Sampled
+Uttar Pradesh,Pratapgarh,111.98,25.36,110.1,7.76,18.18,1064.3,75.87,Estimated_Sampled
+Uttar Pradesh,Prayagraj,165.82,27.78,199.91,7.93,24.84,1294.2,73.57,Estimated_Sampled
+Uttar Pradesh,Rae Bareli,111.49,25.21,87.86,6.67,24.51,467.2,54.09,Estimated_Sampled
+Uttar Pradesh,Rampur,163.07,22.31,135.72,6.51,24.58,1563.6,89.97,Estimated_Sampled
+Uttar Pradesh,Saharanpur,94.14,25.03,89.27,7.38,27.83,554.9,87.58,Estimated_Sampled
+Uttar Pradesh,Sambhal,132.21,28.66,157.01,5.75,20.95,589.6,83.15,Estimated_Sampled
+Uttar Pradesh,Sant Kabeer Nagar,168.35,27.24,175.63,6.16,25.59,511,78.58,Estimated_Sampled
+Uttar Pradesh,Shahjahanpur,175.37,13.4,66.21,6.69,27.69,1123.4,40.79,Estimated_Sampled
+Uttar Pradesh,Shamli,118.47,27.02,191.59,6.1,29.21,1341.7,76.41,Estimated_Sampled
+Uttar Pradesh,Shravasti,118.21,21.55,111.17,7.7,21.84,1369.9,63.57,Estimated_Sampled
+Uttar Pradesh,Siddharth Nagar,164.79,11.71,135.92,7.7,18.55,696,41.2,Estimated_Sampled
+Uttar Pradesh,Sitapur,112.89,20.91,162.97,7.9,22.6,1345.4,65.8,Estimated_Sampled
+Uttar Pradesh,Sonbhadra,189.62,22.07,158.3,6.3,22.62,1341.9,78.57,Estimated_Sampled
+Uttar Pradesh,Sultanpur,97.39,10.72,100.71,7.34,22.83,1573.3,40.88,Estimated_Sampled
+Uttar Pradesh,Unnao,109.36,26.57,77.1,7.76,26.32,1099.7,87.28,Estimated_Sampled
+Uttar Pradesh,Varanasi,194.38,21.49,160.99,5.55,28.3,577.1,68.17,Estimated_Sampled
+West Bengal,24 Paraganas North,170.44,8.18,65.82,6.19,22.79,1142.4,78.21,Estimated_Sampled
+West Bengal,24 Paraganas South,179.67,21.7,146.85,7.4,21.24,1497.9,61.85,Estimated_Sampled
+West Bengal,Alipurduar,191.46,10.71,93.6,7.74,23.41,1229.1,73.3,Estimated_Sampled
+West Bengal,Bankura,92.87,27.3,106.96,6.68,18.09,1219.5,43,Estimated_Sampled
+West Bengal,Birbhum,141.49,22.45,176.97,6.11,28.38,605.5,42.77,Estimated_Sampled
+West Bengal,Coochbehar,113.34,22.69,171.38,6.76,25.75,1253.2,75.28,Estimated_Sampled
+West Bengal,Darjeeling,198.66,22.77,161.37,5.63,25.86,788,48.39,Estimated_Sampled
+West Bengal,Dinajpur Dakshin,89.1,19.33,76.6,7.42,20.2,514.8,73.44,Estimated_Sampled
+West Bengal,Dinajpur Uttar,82.19,23.81,117.53,6.67,21.76,535.7,55.43,Estimated_Sampled
+West Bengal,Hooghly,104.24,20.91,82.26,6.61,28.72,1383.7,69.24,Estimated_Sampled
+West Bengal,Howrah,175.78,11.4,76.8,7.29,20.32,786.6,66.48,Estimated_Sampled
+West Bengal,Jalpaiguri,157.3,24.22,126.42,5.59,24.11,1436.6,70.95,Estimated_Sampled
+West Bengal,Jhargram,99.46,21.39,154.87,6,26.78,1301.6,80,Estimated_Sampled
+West Bengal,Kalimpong,114.79,18.26,124.85,7.96,24.95,1438.3,51.98,Estimated_Sampled
+West Bengal,Kolkata,194.77,8.16,68.18,6.35,25.32,747.8,53.69,Estimated_Sampled
+West Bengal,Maldah,124.45,20.66,135.79,5.52,18.42,630.8,46.68,Estimated_Sampled
+West Bengal,Medinipur East,127.56,17.38,156.24,7.02,29.88,1109,71.47,Estimated_Sampled
+West Bengal,Medinipur West,84.55,15.31,83.15,5.87,25.57,1034.3,77.74,Estimated_Sampled
+West Bengal,Murshidabad,121.35,16.35,89.13,6.07,21.5,904.6,54.91,Estimated_Sampled
+West Bengal,Nadia,116.83,27.93,183.53,7.94,25.06,1499.3,76.12,Estimated_Sampled
+West Bengal,Paschim Bardhaman,196.41,21.81,117.77,5.89,24.73,873.5,80,Estimated_Sampled
+West Bengal,Purba Bardhaman,177.39,16.13,91.21,6.24,18.21,685.9,77.49,Estimated_Sampled
+West Bengal,Purulia,144.44,18.61,115.67,7.48,23.44,861.5,45.44,Estimated_Sampled

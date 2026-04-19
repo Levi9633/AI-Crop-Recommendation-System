@@ -1,0 +1,808 @@
+# app1.py
+from typing import List, Optional, Dict, Any
+import os
+import joblib
+import numpy as np
+import pandas as pd
+from fastapi import FastAPI, HTTPException, Query
+from fastapi.responses import RedirectResponse
+from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+from collections import defaultdict
+from datetime import datetime
+from zoneinfo import ZoneInfo  # Python 3.9+
+import requests
+import json
+import re
+
+# -----------------------------
+# CONFIG
+# -----------------------------
+BASE_DIR = "model3_fastapi"  # folder where model + CSV are stored
+
+MODEL_FILE = os.path.join(BASE_DIR, "hybrid_crop_model.joblib")
+MLB_FILE = os.path.join(BASE_DIR, "hybrid_mlb.joblib")
+CSV_PATH = os.path.join(BASE_DIR, "India Agriculture Crop Production.csv")
+
+# NPK + pH CSV (must be in same dir as others)
+NPK_CSV_PATH = os.path.join(BASE_DIR, "india_district_npk.csv")
+
+# Column names (match your CSVs)
+COL_STATE = "State_Name"
+COL_DISTRICT = "District_Name"
+COL_CROP = "Crop"
+COL_YEAR = "Crop_Year"
+COL_SEASON = "Season"
+COL_AREA = "Area"
+COL_PROD = "Production"
+COL_YIELD = "Yield"
+
+# NPK CSV column names (as given)
+COL_NPK_STATE = "State"
+COL_NPK_DISTRICT = "District"
+COL_N = "N_ppm"
+COL_P = "P_ppm"
+COL_K = "K_ppm"
+COL_PH = "pH_avg"
+
+# ------------- GEMINI CONFIG -------------
+# Put your real Gemini API key here:
+GEMINI_API_KEY = "AIzaSyDCKBSVftgHR_x6XCBCBIYF3zl7aB5GLek"  # <-- SET THIS TO YOUR REAL KEY, e.g. "AIzaSyA...."
+GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_URL = (
+    f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
+)
+
+# -----------------------------
+# FASTAPI APP
+# -----------------------------
+app = FastAPI(
+    title="Hybrid Crop Recommender API",
+    description=(
+        "Predict crops using ML + dataset statistics. "
+        "Supports flexible filters: state, district, year, season, with fallback. "
+        "Also returns N, P, K and pH for matching state+district from soil dataset "
+        "and Gemini-based economic recommendations."
+    ),
+    version="3.3",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["*"],
+)
+
+# -----------------------------
+# GLOBALS
+# -----------------------------
+_model = None
+_mlb = None
+_df: Optional[pd.DataFrame] = None
+_npk_df: Optional[pd.DataFrame] = None
+
+
+# -----------------------------
+# Pydantic MODELS
+# -----------------------------
+class SeasonInfo(BaseModel):
+    season: str
+    probability: float
+
+
+class CropItem(BaseModel):
+    crop: str
+    model_probability: float
+    best_season: Optional[SeasonInfo] = None
+    all_seasons: Optional[List[SeasonInfo]] = None
+
+
+class SoilInfo(BaseModel):
+    N_ppm: Optional[float] = None
+    P_ppm: Optional[float] = None
+    K_ppm: Optional[float] = None
+    pH_avg: Optional[float] = None
+
+
+class RecommendResponse(BaseModel):
+    state: Optional[str] = None
+    district: Optional[str] = None
+    year: Optional[str] = None
+    season: Optional[str] = None
+    soil_info: Optional[SoilInfo] = None
+    recommendations: List[CropItem]
+
+
+# -----------------------------
+# LOADING ARTIFACTS
+# -----------------------------
+def load_model_and_mlb():
+    if not os.path.exists(MODEL_FILE):
+        raise FileNotFoundError(f"Model file not found: {MODEL_FILE}")
+    if not os.path.exists(MLB_FILE):
+        raise FileNotFoundError(f"MLB file not found: {MLB_FILE}")
+
+    model = joblib.load(MODEL_FILE)
+    mlb = joblib.load(MLB_FILE)
+    return model, mlb
+
+
+def load_dataset():
+    if not os.path.exists(CSV_PATH):
+        raise FileNotFoundError(f"CSV file not found: {CSV_PATH}")
+
+    df = pd.read_csv(CSV_PATH)
+
+    # Clean string columns (strip spaces)
+    for col in [COL_STATE, COL_DISTRICT, COL_CROP, COL_YEAR, COL_SEASON]:
+        df[col] = df[col].astype(str).str.strip()
+
+    # Ensure numeric columns are numeric if present
+    if COL_AREA in df.columns:
+        df[COL_AREA] = pd.to_numeric(df[COL_AREA], errors="coerce")
+    if COL_PROD in df.columns:
+        df[COL_PROD] = pd.to_numeric(df[COL_PROD], errors="coerce")
+    if COL_YIELD in df.columns:
+        df[COL_YIELD] = pd.to_numeric(df[COL_YIELD], errors="coerce")
+    else:
+        df[COL_YIELD] = np.nan
+
+    return df
+
+
+def load_npk_dataset():
+    """
+    Load soil NPK + pH dataset by state & district.
+    Expected columns:
+      State, District, N_ppm, P_ppm, K_ppm, pH_avg
+    """
+    if not os.path.exists(NPK_CSV_PATH):
+        print(f"⚠️ NPK CSV not found: {NPK_CSV_PATH}. Soil info will be None.")
+        return None
+
+    df = pd.read_csv(NPK_CSV_PATH)
+
+    # Clean string columns
+    for col in [COL_NPK_STATE, COL_NPK_DISTRICT]:
+        df[col] = df[col].astype(str).str.strip()
+
+    # Ensure numeric
+    for col in [COL_N, COL_P, COL_K, COL_PH]:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    return df
+
+
+@app.on_event("startup")
+def startup_event():
+    global _model, _mlb, _df, _npk_df
+    try:
+        _model, _mlb = load_model_and_mlb()
+        _df = load_dataset()
+        _npk_df = load_npk_dataset()
+        print("✅ Loaded hybrid model, encoder, main dataset, and NPK dataset.")
+    except Exception as e:
+        print("❌ ERROR loading artifacts on startup:", e)
+        _model = None
+        _df = None
+        _npk_df = None
+
+
+def _ensure_loaded():
+    if _model is None or _mlb is None or _df is None:
+        raise HTTPException(
+            status_code=500,
+            detail="Model or main dataset not loaded on server. Check logs.",
+        )
+
+
+# -----------------------------
+# INTERNAL HELPERS
+# -----------------------------
+def _build_input_row(
+    state: Optional[str],
+    district: Optional[str],
+    year: Optional[str],
+    season: Optional[str],
+) -> pd.DataFrame:
+    """
+    Build a single-row DataFrame for the ML model.
+    Missing values are replaced with special tokens so that
+    OneHotEncoder(handle_unknown='ignore') will ignore them.
+    """
+    row = {
+        COL_STATE: (state.strip() if state else "MISSING_STATE"),
+        COL_DISTRICT: (district.strip() if district else "MISSING_DISTRICT"),
+        COL_YEAR: (year.strip() if year else "MISSING_YEAR"),
+        COL_SEASON: (season.strip() if season else "MISSING_SEASON"),
+    }
+    return pd.DataFrame([row])
+
+
+def _apply_case_insensitive_filter(
+    df: pd.DataFrame,
+    state: Optional[str],
+    district: Optional[str],
+    year: Optional[str],
+    season: Optional[str],
+) -> pd.DataFrame:
+    """
+    Filter dataframe using given non-None filters, case-insensitively.
+    This is a generic helper used by the fallback logic.
+    """
+    mask = pd.Series(True, index=df.index)
+
+    if state:
+        s_val = state.strip().lower()
+        mask &= df[COL_STATE].astype(str).str.strip().str.lower() == s_val
+
+    if district:
+        d_val = district.strip().lower()
+        mask &= df[COL_DISTRICT].astype(str).str.strip().str.lower() == d_val
+
+    if year:
+        y_val = year.strip().lower()
+        mask &= df[COL_YEAR].astype(str).str.strip().str.lower() == y_val
+
+    if season:
+        se_val = season.strip().lower()
+        mask &= df[COL_SEASON].astype(str).str.strip().str.lower() == se_val
+
+    return df[mask]
+
+
+def _filter_with_fallback(
+    state: Optional[str],
+    district: Optional[str],
+    year: Optional[str],
+    season: Optional[str],
+) -> pd.DataFrame:
+    """
+    Try filtering with strongest combination first, then relax step by step
+    to always get some data for statistics.
+    Order of attempts:
+      1) state + district + year + season (if provided)
+      2) state + district + year
+      3) state + district
+      4) state
+      5) full dataset
+    """
+    assert _df is not None
+    df = _df
+
+    # 1) Full filter
+    filtered = _apply_case_insensitive_filter(df, state, district, year, season)
+    if not filtered.empty:
+        return filtered
+
+    # 2) Drop season
+    if year or district or state:
+        filtered = _apply_case_insensitive_filter(df, state, district, year, None)
+        if not filtered.empty:
+            return filtered
+
+    # 3) Only state + district
+    if district or state:
+        filtered = _apply_case_insensitive_filter(df, state, district, None, None)
+        if not filtered.empty:
+            return filtered
+
+    # 4) Only state
+    if state:
+        filtered = _apply_case_insensitive_filter(df, state, None, None, None)
+        if not filtered.empty:
+            return filtered
+
+    # 5) Fallback: entire dataset
+    return df
+
+
+def _compute_dataset_stats(filtered: pd.DataFrame):
+    """
+    From the filtered dataframe, compute:
+      - crop_counts (for frequency_score)
+      - per-crop season counts (for best_season & all_seasons)
+      - avg area, production, yield per crop
+    """
+    if filtered.empty:
+        return {}, {}, {}, {}, {}
+
+    # Crop counts
+    crop_counts = filtered.groupby(COL_CROP).size().to_dict()
+
+    # Season distribution per crop
+    crop_season_counts: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    season_group = filtered.groupby([COL_CROP, COL_SEASON]).size()
+    for (crop, season), cnt in season_group.to_dict().items():
+        crop_season_counts[crop][season] += cnt
+
+    # Averages
+    avg_area = {}
+    avg_prod = {}
+    avg_yield = {}
+
+    if COL_AREA in filtered.columns:
+        avg_area = filtered.groupby(COL_CROP)[COL_AREA].mean().to_dict()
+    if COL_PROD in filtered.columns:
+        avg_prod = filtered.groupby(COL_CROP)[COL_PROD].mean().to_dict()
+    if COL_YIELD in filtered.columns:
+        avg_yield = filtered.groupby(COL_CROP)[COL_YIELD].mean().to_dict()
+
+    # Convert counts to frequency scores
+    total_count = sum(crop_counts.values())
+    freq_scores: Dict[str, float] = {}
+    if total_count > 0:
+        for crop, cnt in crop_counts.items():
+            freq_scores[crop] = cnt / total_count
+
+    return freq_scores, crop_season_counts, avg_area, avg_prod, avg_yield
+
+
+def _get_soil_info_for(state: Optional[str], district: Optional[str]) -> Optional[Dict[str, float]]:
+    """
+    Match state + district with the NPK CSV (case-insensitive).
+    If match found, return dict with N, P, K, pH.
+    If no match or no NPK dataset loaded, return None.
+    """
+    if _npk_df is None:
+        return None
+    if not state or not district:
+        return None
+
+    s_val = state.strip().lower()
+    d_val = district.strip().lower()
+
+    df = _npk_df.copy()
+    state_series = df[COL_NPK_STATE].astype(str).str.strip().str.lower()
+    district_series = df[COL_NPK_DISTRICT].astype(str).str.strip().str.lower()
+
+    mask = (state_series == s_val) & (district_series == d_val)
+    sub = df[mask]
+
+    if sub.empty:
+        return None
+
+    row = sub.iloc[0]
+
+    n_val = row.get(COL_N)
+    p_val = row.get(COL_P)
+    k_val = row.get(COL_K)
+    ph_val = row.get(COL_PH)
+
+    if all(pd.isna([n_val, p_val, k_val, ph_val])):
+        return None
+
+    return {
+        "N_ppm": float(n_val) if pd.notna(n_val) else None,
+        "P_ppm": float(p_val) if pd.notna(p_val) else None,
+        "K_ppm": float(k_val) if pd.notna(k_val) else None,
+        "pH_avg": float(ph_val) if pd.notna(ph_val) else None,
+    }
+
+
+def _infer_current_season_india() -> str:
+    """
+    Rough mapping of month to Indian agri season.
+    - Kharif: Jun–Sep
+    - Rabi: Oct–Feb
+    - Summer: Mar–May
+    """
+    try:
+        now = datetime.now(ZoneInfo("Asia/Kolkata"))
+    except Exception:
+        now = datetime.utcnow()
+    m = now.month
+
+    if m in [6, 7, 8, 9]:
+        return "Kharif"
+    elif m in [10, 11, 12, 1, 2]:
+        return "Rabi"
+    else:
+        return "Summer"
+
+
+def _call_gemini_for_recommendations(prompt: str) -> List[Dict[str, Any]]:
+    """
+    Call Gemini and expect a JSON ARRAY of exactly 3 recommendation objects.
+    If something goes wrong, raise HTTPException.
+    """
+    if not GEMINI_API_KEY:
+        raise HTTPException(
+            status_code=500,
+            detail="Gemini API key not configured. Set GEMINI_API_KEY in the code.",
+        )
+
+    headers = {
+        "Content-Type": "application/json",
+        "X-goog-api-key": GEMINI_API_KEY,
+    }
+    payload = {
+        "contents": [
+            {
+                "parts": [
+                    {
+                        "text": prompt
+                    }
+                ]
+            }
+        ]
+    }
+
+    try:
+        resp = requests.post(GEMINI_URL, headers=headers, json=payload, timeout=60)
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error calling Gemini API: {e}",
+        )
+
+    if resp.status_code != 200:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Gemini API error: {resp.status_code} - {resp.text}",
+        )
+
+    data = resp.json()
+    try:
+        text = data["candidates"][0]["content"]["parts"][0]["text"]
+    except Exception:
+        raise HTTPException(
+            status_code=500,
+            detail="Unexpected response from Gemini API.",
+        )
+
+    # Clean possible markdown fences ```json ... ```
+    text = text.strip()
+    if text.startswith("```"):
+        # remove first ```... and last ```
+        text = re.sub(r"^```[a-zA-Z0-9]*", "", text)  # remove starting ``` or ```json
+        text = re.sub(r"```$", "", text.strip())
+
+    try:
+        parsed = json.loads(text)
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to parse Gemini JSON: {e}. Raw text: {text}",
+        )
+
+    if not isinstance(parsed, list):
+        raise HTTPException(
+            status_code=500,
+            detail="Gemini JSON is not a list as expected.",
+        )
+
+    return parsed
+
+
+def recommend_for_internal(
+    state: Optional[str] = None,
+    district: Optional[str] = None,
+    year: Optional[str] = None,
+    season: Optional[str] = None,
+    top_k_crops: int = 10,
+    ml_prob_threshold: float = 0.05,
+) -> List[Dict[str, Any]]:
+    """
+    - Filter the real dataset using the given parameters with fallback.
+    - Compute stats: frequency, season distribution, avg area/prod/yield.
+    - Run ML model on (state, district, year, season) with missing allowed.
+    - Combine dataset stats + ML outputs into final scores.
+    """
+    _ensure_loaded()
+
+    if not any([state, district, year, season]):
+        raise HTTPException(
+            status_code=400,
+            detail="At least one of 'state', 'district', 'year', or 'season' must be provided.",
+        )
+
+    # 1) Filter dataset with fallback
+    filtered = _filter_with_fallback(state, district, year, season)
+    freq_scores, crop_season_counts, avg_area, avg_prod, avg_yield = _compute_dataset_stats(
+        filtered
+    )
+
+    # 2) ML predictions on the exact input (no fallback here)
+    X_new = _build_input_row(state, district, year, season)
+
+    try:
+        encoder = _model.named_steps["encoder"]
+        classifier = _model.named_steps["classifier"]
+    except Exception:
+        raise HTTPException(
+            status_code=500,
+            detail="Loaded model missing pipeline steps 'encoder' and 'classifier'.",
+        )
+
+    try:
+        X_trans = encoder.transform(X_new)
+        probs = classifier.predict_proba(X_trans)[0]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error computing probabilities: {e}")
+
+    crop_labels = _mlb.classes_
+    ml_probs = {crop_labels[i]: float(probs[i]) for i in range(len(crop_labels))}
+
+    # 3) Combine scores
+    results: List[Dict[str, Any]] = []
+    scored_for_sorting: List[Dict[str, Any]] = []
+
+    for crop, ml_p in ml_probs.items():
+        if ml_p < ml_prob_threshold:
+            continue
+
+        freq_p = freq_scores.get(crop, 0.0)
+
+        if freq_p > 0:
+            final_score = 0.65 * ml_p + 0.35 * freq_p
+        else:
+            final_score = ml_p
+
+        # Build seasons for this crop
+        seasons_info_all: List[Dict[str, Any]] = []
+        best_season_info = None
+
+        season_counts = crop_season_counts.get(crop, {})
+        if season_counts:
+            total_for_crop = sum(season_counts.values())
+            sorted_seasons = sorted(
+                season_counts.items(), key=lambda x: x[1], reverse=True
+            )
+            for se, cnt in sorted_seasons:
+                p = cnt / total_for_crop if total_for_crop > 0 else 0.0
+                seasons_info_all.append(
+                    {"season": se, "probability": round(p, 3)}
+                )
+
+            best_season, best_cnt = sorted_seasons[0]
+            best_prob = best_cnt / total_for_crop if total_for_crop > 0 else 0.0
+            best_season_info = {
+                "season": best_season,
+                "probability": round(best_prob, 3),
+            }
+
+        # Public result
+        results.append(
+            {
+                "crop": crop,
+                "model_probability": round(ml_p, 3),
+                "best_season": best_season_info,
+                "all_seasons": seasons_info_all if seasons_info_all else None,
+            }
+        )
+
+        # Internal scoring
+        scored_for_sorting.append(
+            {
+                "crop": crop,
+                "final_score": final_score,
+            }
+        )
+
+    # Map crop -> final_score for sorting the public results
+    score_map = {item["crop"]: item["final_score"] for item in scored_for_sorting}
+
+    # Sort by final_score (internal) but don't expose it
+    results.sort(key=lambda x: score_map.get(x["crop"], 0.0), reverse=True)
+
+    # Top K
+    return results[:top_k_crops]
+
+
+# -----------------------------
+# API ENDPOINTS
+# -----------------------------
+@app.get("/")
+def root():
+    return RedirectResponse(url="/docs")
+
+
+@app.get("/recommend", response_model=RecommendResponse)
+def recommend_get(
+    state: Optional[str] = Query(None, examples=["Karnataka"]),
+    district: Optional[str] = Query(None, examples=["Davangere"]),
+    year: Optional[str] = Query(None, examples=["2001-02"]),
+    season: Optional[str] = Query(None, examples=["Kharif"]),
+    top_k_crops: int = Query(10, ge=1, le=100),
+    ml_prob_threshold: float = Query(0.05, ge=0.0, le=1.0),
+):
+    """
+    Basic recommendation endpoint:
+    returns soil_info + ML-based crop recommendations.
+    """
+    try:
+        recs = recommend_for_internal(
+            state=state,
+            district=district,
+            year=year,
+            season=season,
+            top_k_crops=top_k_crops,
+            ml_prob_threshold=ml_prob_threshold,
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Recommendation error: {e}")
+
+    # Get soil info (NPK + pH) for given state+district
+    soil_info_dict = _get_soil_info_for(state, district)
+    soil_info_obj: Optional[SoilInfo] = None
+    if soil_info_dict is not None:
+        soil_info_obj = SoilInfo(
+            N_ppm=soil_info_dict["N_ppm"],
+            P_ppm=soil_info_dict["P_ppm"],
+            K_ppm=soil_info_dict["K_ppm"],
+            pH_avg=soil_info_dict["pH_avg"],
+        )
+
+    return RecommendResponse(
+        state=state,
+        district=district,
+        year=year,
+        season=season,
+        soil_info=soil_info_obj,
+        recommendations=recs,
+    )
+
+
+@app.get("/result/recommend")
+def result_recommend_get(
+    state: Optional[str] = Query(None, examples=["Chhattisgarh"]),
+    district: Optional[str] = Query(None, examples=["BASTAR"]),
+    year: Optional[str] = Query(None),
+    season: Optional[str] = Query(None),
+    top_k_crops: int = Query(10, ge=1, le=100),
+    ml_prob_threshold: float = Query(0.05, ge=0.0, le=1.0),
+):
+    """
+    Advanced endpoint:
+    - Uses ML + dataset + soil CSV
+    - Finds current Indian season
+    - Sends all info to Gemini
+    - Returns structured JSON:
+      {
+        "state": ...,
+        "district": ...,
+        "year": ...,
+        "season": ...,
+        "soil_info": {...},
+        "recommendations": [ { crop, model_probability, investment, profit, investment_breakdown, duration_to_grow, season, reasoning }, ... ]
+      }
+    """
+    try:
+        recs = recommend_for_internal(
+            state=state,
+            district=district,
+            year=year,
+            season=season,
+            top_k_crops=top_k_crops,
+            ml_prob_threshold=ml_prob_threshold,
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Recommendation error: {e}")
+
+    soil_info_dict = _get_soil_info_for(state, district)
+    current_season = _infer_current_season_india()
+    response_season = season if season is not None else current_season
+
+    # Build a summary of model crops
+    if recs:
+        crops_summary_lines = []
+        for r in recs:
+            crop_name = r["crop"]
+            prob = r["model_probability"]
+            best_season = r["best_season"]["season"] if r.get("best_season") else "Unknown"
+            crops_summary_lines.append(
+                f"- {crop_name} (model_prob={prob}, best_season={best_season})"
+            )
+        crops_summary = "\n".join(crops_summary_lines)
+    else:
+        crops_summary = "No crops predicted by the model for the given filters."
+
+    # Build soil summary
+    if soil_info_dict:
+        soil_summary = (
+            f"N={soil_info_dict.get('N_ppm')}, "
+            f"P={soil_info_dict.get('P_ppm')}, "
+            f"K={soil_info_dict.get('K_ppm')}, "
+            f"pH={soil_info_dict.get('pH_avg')}"
+        )
+    else:
+        soil_summary = "No soil data available for this state+district."
+
+    # Prompt for Gemini - ask ONLY for JSON ARRAY of 3 recommendation objects
+    prompt = f"""
+You are an expert Indian agriculture advisor.
+
+Location:
+- State: {state}
+- District: {district}
+
+Target agricultural season: {response_season}
+
+Soil information (from lab data or survey):
+{soil_summary}
+
+Model-predicted suitable crops and their historic best seasons (from a historical ML model):
+{crops_summary}
+
+TASK:
+From ONLY the crops listed above, prioritize and choose the BEST 3 crops to grow in the "{response_season}" season in this location.
+Consider the requested season ({response_season}), the historic best seasons for these crops, soil parameters, and typical Indian farming conditions.
+
+Return your answer as a STRICT JSON ARRAY with EXACTLY 3 objects.
+Each object MUST have the following keys:
+
+- "crop": string, the crop name.
+- "investment": string, a human-readable range in INR per acre (e.g. "₹25,000 - ₹35,000 per acre").
+- "profit": string, a human-readable range in INR per acre (e.g. "₹30,000 - ₹60,000 per acre").
+- "investment_breakdown": an object with keys:
+    - "seeds": string, cost range or value in INR.
+    - "labour": string, cost range or value in INR.
+    - "fertilizer": string, cost range or value in INR.
+    - "other": string, other costs (irrigation, pesticides, etc.).
+- "duration_to_grow": string, typical time from sowing to harvest (e.g. "90 - 120 days").
+- "season": string, the recommended season for this crop in this context (e.g. "Rabi", "Kharif", "Summer", "Whole Year").
+- "reasoning": string, 2–3 sentences explaining why this crop is suitable.
+
+IMPORTANT:
+- Respond ONLY with the JSON ARRAY. Do NOT include any extra text, explanation, or markdown.
+- Do NOT wrap the JSON in backticks.
+"""
+
+    top3_recs = _call_gemini_for_recommendations(prompt)
+
+    # Helper to normalize crop names for resilient matching
+    def normalize_crop_name(name: str) -> str:
+        s = str(name).lower()
+        s = s.replace("&", "and")
+        s = re.sub(r'[^a-z0-9]', '', s)
+        return s
+
+    # Inject accurate model_probability, order the dict keys, and sort by probability
+    updated_recs = []
+    for rec in top3_recs:
+        gemini_crop_norm = normalize_crop_name(rec.get("crop", ""))
+        prob = None
+        for original_rec in recs:
+            orig_crop_norm = normalize_crop_name(original_rec["crop"])
+            if orig_crop_norm == gemini_crop_norm:
+                prob = original_rec["model_probability"]
+                break
+        
+        # Build new dictionary to enforce order: crop -> model_probability -> rest
+        new_rec = {"crop": rec.get("crop")}
+        new_rec["model_probability"] = prob
+        for k, v in rec.items():
+            if k not in ("crop", "model_probability"):
+                new_rec[k] = v
+        
+        updated_recs.append(new_rec)
+
+    # Sort in DECREASING order of model accuracy (highest to lowest)
+    updated_recs.sort(key=lambda x: x["model_probability"] if x["model_probability"] is not None else -1.0, reverse=True)
+
+    return {
+        "state": state,
+        "district": district,
+        "year": year,
+        "season": response_season,
+        "soil_info": soil_info_dict,
+        "recommendations": updated_recs,
+    }
+
+
+@app.get("/health")
+def health():
+    return {
+        "status": "ok",
+        "model_loaded": _model is not None,
+        "mlb_loaded": _mlb is not None,
+        "dataset_loaded": _df is not None,
+        "npk_dataset_loaded": _npk_df is not None,
+    }

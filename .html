@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CropSense AI — Smart Crop Recommender</title>
+  <meta name="description" content="AI-powered crop recommendation system for Indian agriculture using ML models and Gemini AI."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --bg-primary:     #09130d;
+      --bg-secondary:   #0f1f14;
+      --bg-card:        #121f16;
+      --bg-glass:       rgba(18, 31, 22, 0.72);
+      --bg-input:       #0d1a10;
+
+      --green-900:      #0a1f0e;
+      --green-800:      #122a18;
+      --green-700:      #1b3d23;
+      --green-600:      #24562f;
+      --green-500:      #2d6e3b;
+      --green-400:      #3a9050;
+      --green-300:      #52b96b;
+      --green-200:      #78d18e;
+      --green-100:      #b4edbe;
+
+      --gold-500:       #d4a029;
+      --gold-400:       #e6b53a;
+      --gold-300:       #f0c855;
+      --gold-200:       #f7dc8a;
+
+      --amber-500:      #c97825;
+      --amber-400:      #e08c35;
+
+      --earth-500:      #7a5c3a;
+      --earth-400:      #9b7451;
+
+      --text-primary:   #e8f5ea;
+      --text-secondary: #9dbfa3;
+      --text-muted:     #5a7a60;
+      --text-white:     #ffffff;
+
+      --border:         rgba(52, 144, 80, 0.18);
+      --border-hover:   rgba(52, 144, 80, 0.4);
+
+      --shadow-sm:  0 2px 8px rgba(0,0,0,0.4);
+      --shadow-md:  0 4px 20px rgba(0,0,0,0.5);
+      --shadow-lg:  0 8px 40px rgba(0,0,0,0.6);
+      --glow-green: 0 0 30px rgba(58, 144, 80, 0.2);
+
+      --radius-sm:  8px;
+      --radius-md:  14px;
+      --radius-lg:  20px;
+      --radius-xl:  28px;
+
+      --font-main:  'Outfit', sans-serif;
+      --font-body:  'Inter', sans-serif;
+
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Subtle grid texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(58,144,80,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(58,144,80,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 19, 13, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--green-500), var(--green-300));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 16px rgba(58,144,80,0.4);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      background: linear-gradient(90deg, var(--green-200), var(--gold-300));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .header-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green-300);
+      box-shadow: 0 0 8px var(--green-300);
+      animation: pulse-dot 2s infinite;
+    }
+
+    .status-dot.offline { background: #e74c3c; box-shadow: 0 0 8px #e74c3c; animation: none; }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .app-layout {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============================================================
+       SIDEBAR / FORM PANEL
+    ============================================================ */
+    .sidebar {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 22px 24px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .panel-header-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(58, 144, 80, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    .panel-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.2px;
+    }
+
+    .panel-body { padding: 24px; }
+
+    /* ============================================================
+       FORM ELEMENTS
+    ============================================================ */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      margin-bottom: 8px;
+      font-family: var(--font-body);
+    }
+
+    .form-label .label-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green-400);
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: var(--font-main);
+      font-weight: 500;
+      color: var(--text-primary);
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      outline: none;
+      transition: var(--transition);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-input::placeholder { color: var(--text-muted); font-weight: 400; }
+
+    .form-input:focus, .form-select:focus {
+      border-color: var(--green-400);
+      box-shadow: 0 0 0 3px rgba(58, 144, 80, 0.15);
+      background: #101e14;
+    }
+
+    .form-input:hover, .form-select:hover {
+      border-color: var(--border-hover);
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: '▾';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 13px;
+      pointer-events: none;
+    }
+
+    .form-select option {
+      background: #0f1f14;
+      color: var(--text-primary);
+    }
+
+    /* Slider */
+    .slider-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .form-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      flex: 1;
+      height: 4px;
+      border-radius: 4px;
+      background: var(--green-800);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .form-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-400), var(--green-300));
+      box-shadow: 0 0 8px rgba(58, 144, 80, 0.5);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .form-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .slider-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-300);
+      min-width: 36px;
+      text-align: right;
+      font-family: var(--font-body);
+    }
+
+    /* Mode Switch */
+    .mode-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--bg-input);
+      border-radius: var(--radius-md);
+      padding: 4px;
+      gap: 3px;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .mode-tab {
+      padding: 10px 8px;
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: calc(var(--radius-md) - 3px);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+      font-family: var(--font-body);
+      letter-spacing: 0.2px;
+    }
+
+    .mode-tab:hover:not(.active) {
+      color: var(--text-secondary);
+      background: rgba(58,144,80,0.06);
+    }
+
+    .mode-tab.active {
+      background: linear-gradient(135deg, var(--green-600), var(--green-500));
+      color: var(--text-white);
+      box-shadow: 0 2px 10px rgba(58,144,80,0.35);
+    }
+
+    /* Submit Button */
+    .btn-primary {
+      width: 100%;
+      padding: 14px;
+      font-family: var(--font-main);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--green-500) 0%, var(--green-400) 100%);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(58,144,80,0.35);
+      position: relative;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(58,144,80,0.5);
+    }
+
+    .btn-primary:hover::before { opacity: 1; }
+
+    .btn-primary:active:not(:disabled) { transform: translateY(0); }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .btn-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* ============================================================
+       MAIN RESULTS PANEL
+    ============================================================ */
+    .results-area { display: flex; flex-direction: column; gap: 20px; }
+
+    /* Hero / Welcome state */
+    .welcome-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--bg-card);
+    }
+
+    .welcome-icon {
+      font-size: 56px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 4px 20px rgba(58,144,80,0.4));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .welcome-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .welcome-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 360px;
+      line-height: 1.7;
+      font-family: var(--font-body);
+    }
+
+    /* ============================================================
+       LOADING STATE
+    ============================================================ */
+    .loading-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--bg-card);
+    }
+
+    .loading-state.visible { display: flex; }
+
+    .spinner-ring {
+      width: 56px;
+      height: 56px;
+      border: 3px solid var(--green-800);
+      border-top-color: var(--green-400);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+      margin-bottom: 24px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .loading-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-family: var(--font-body);
+    }
+
+    /* ============================================================
+       META BAR (location/season info)
+    ============================================================ */
+    .meta-bar {
+      display: none;
+      padding: 16px 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .meta-bar.visible { display: flex; }
+
+    .meta-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .meta-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+    }
+
+    .meta-value {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .meta-sep { color: var(--border); font-size: 18px; }
+
+    .season-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .season-badge.Kharif  { background: rgba(41,182,246,0.12); color: #82d9f5; border: 1px solid rgba(41,182,246,0.25); }
+    .season-badge.Rabi    { background: rgba(212, 160, 41, 0.12); color: var(--gold-300); border: 1px solid rgba(212,160,41,0.25); }
+    .season-badge.Summer  { background: rgba(201,120,37,0.12); color: #f4a76a; border: 1px solid rgba(201,120,37,0.25); }
+    .season-badge.default { background: rgba(58,144,80,0.12); color: var(--green-200); border: 1px solid rgba(58,144,80,0.25); }
+
+    /* ============================================================
+       SOIL INFO CARD
+    ============================================================ */
+    .soil-card {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px 24px;
+    }
+
+    .soil-card.visible { display: block; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .section-title-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .section-title-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .soil-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .soil-metric {
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .soil-metric:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .soil-metric-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .soil-metric-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .soil-metric-value {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    .soil-metric-unit {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .soil-bar-row {
+      margin-top: 14px;
+    }
+
+    .soil-bar-bg {
+      height: 4px;
+      background: var(--green-800);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .soil-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .soil-n .soil-bar-fill { background: linear-gradient(90deg, #3498db, #5dade2); }
+    .soil-p .soil-bar-fill { background: linear-gradient(90deg, var(--amber-500), var(--gold-300)); }
+    .soil-k .soil-bar-fill { background: linear-gradient(90deg, var(--green-500), var(--green-300)); }
+    .soil-ph .soil-bar-fill { background: linear-gradient(90deg, #8e44ad, #c39bd3); }
+
+    .soil-n .soil-metric-value { color: #82bde8; }
+    .soil-p .soil-metric-value { color: var(--gold-300); }
+    .soil-k .soil-metric-value { color: var(--green-200); }
+    .soil-ph .soil-metric-value { color: #c39bd3; }
+
+    /* ============================================================
+       BASIC RECOMMENDATIONS (Crop Cards)
+    ============================================================ */
+    .crops-grid {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .crops-grid.visible { display: flex; }
+
+    .crop-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 18px;
+      transition: var(--transition);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .crop-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      border-radius: 3px 0 0 3px;
+      background: linear-gradient(180deg, var(--green-400), var(--green-600));
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .crop-card:hover {
+      border-color: var(--border-hover);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .crop-card:hover::before { opacity: 1; }
+
+    .crop-rank {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .rank-1 { background: rgba(212,160,41,0.18); color: var(--gold-300); border: 1px solid rgba(212,160,41,0.3); }
+    .rank-2 { background: rgba(189,195,199,0.12); color: #b2bec3; border: 1px solid rgba(189,195,199,0.25); }
+    .rank-3 { background: rgba(180,120,60,0.15); color: #d4956a; border: 1px solid rgba(180,120,60,0.3); }
+    .rank-n { background: rgba(58,144,80,0.1); color: var(--text-muted); border: 1px solid var(--border); }
+
+    .crop-info { min-width: 0; }
+
+    .crop-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .crop-seasons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .season-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-body);
+    }
+
+    .season-pill.Kharif    { background: rgba(41,182,246,0.1); color: #7dd4ef; }
+    .season-pill.Rabi      { background: rgba(212,160,41,0.1); color: var(--gold-200); }
+    .season-pill.Summer    { background: rgba(201,120,37,0.1); color: #f0a870; }
+    .season-pill.Whole\ Year, .season-pill.Whole_Year { background: rgba(58,144,80,0.1); color: var(--green-200); }
+    .season-pill.default-s { background: rgba(58,144,80,0.08); color: var(--text-muted); }
+
+    .crop-prob-area {
+      text-align: right;
+      flex-shrink: 0;
+      min-width: 100px;
+    }
+
+    .crop-prob-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      font-family: var(--font-body);
+    }
+
+    .crop-prob-value {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--green-300);
+      line-height: 1;
+    }
+
+    .prob-pct { font-size: 14px; font-weight: 600; color: var(--text-muted); }
+
+    .prob-bar-bg {
+      height: 3px;
+      background: var(--green-800);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .prob-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--green-500), var(--green-300));
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ============================================================
+       ADVANCED AI RESULTS (Gemini Cards)
+    ============================================================ */
+    .ai-cards { display: none; flex-direction: column; gap: 20px; }
+    .ai-cards.visible { display: flex; }
+
+    .ai-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .ai-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--glow-green), var(--shadow-lg);
+    }
+
+    .ai-card-header {
+      padding: 22px 26px;
+      background: linear-gradient(135deg, rgba(18,42,24,0.8), rgba(9,19,13,0.9));
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ai-card-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .ai-crop-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--green-600), var(--green-500));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 12px rgba(58,144,80,0.3);
+    }
+
+    .ai-crop-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+
+    .ai-crop-season {
+      margin-top: 3px;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+    }
+
+    .ai-card-right { text-align: right; }
+
+    .accuracy-ring-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    .accuracy-number {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .accuracy-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+    }
+
+    .accuracy-high   { color: var(--green-300); }
+    .accuracy-medium { color: var(--gold-300); }
+    .accuracy-low    { color: #e07c5a; }
+
+    .ai-card-body {
+      padding: 24px 26px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .finance-block {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .finance-row {
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .finance-row-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      font-family: var(--font-body);
+    }
+
+    .finance-row-value {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .invest-value { color: var(--amber-400); }
+    .profit-value { color: var(--green-300); }
+
+    .breakdown-block {
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .breakdown-title {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-family: var(--font-body);
+    }
+
+    .breakdown-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .breakdown-item:last-child { border-bottom: none; }
+
+    .breakdown-item-key {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-family: var(--font-body);
+    }
+
+    .breakdown-item-val {
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 12px;
+    }
+
+    .duration-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: rgba(58,144,80,0.07);
+      border: 1px solid rgba(58,144,80,0.15);
+      border-radius: var(--radius-md);
+    }
+
+    .duration-label { font-size: 12px; color: var(--text-muted); font-family: var(--font-body); }
+    .duration-value { font-size: 13px; font-weight: 700; color: var(--green-200); }
+
+    .reasoning-block {
+      grid-column: 1 / -1;
+      margin-top: -4px;
+    }
+
+    .reasoning-text {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      padding: 16px 18px;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green-600);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-family: var(--font-body);
+    }
+
+    /* ============================================================
+       ERROR STATE
+    ============================================================ */
+    .error-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+      text-align: center;
+      border: 1px solid rgba(231,76,60,0.2);
+      border-radius: var(--radius-xl);
+      background: rgba(231,76,60,0.04);
+    }
+
+    .error-state.visible { display: flex; }
+
+    .error-icon { font-size: 40px; margin-bottom: 16px; }
+    .error-title { font-size: 18px; font-weight: 700; color: #e07878; margin-bottom: 8px; }
+    .error-msg { font-size: 13px; color: var(--text-muted); font-family: var(--font-body); line-height: 1.6; max-width: 400px; }
+
+    /* ============================================================
+       EMPTY RESULTS
+    ============================================================ */
+    .empty-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--bg-card);
+    }
+
+    .empty-state.visible { display: flex; }
+    .empty-icon { font-size: 40px; margin-bottom: 14px; opacity: 0.5; }
+    .empty-title { font-size: 16px; font-weight: 700; color: var(--text-muted); }
+
+    /* ============================================================
+       FOOTER STATS BAR
+    ============================================================ */
+    .stats-bar {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      flex-wrap: wrap;
+    }
+
+    .stats-bar.visible { display: flex; }
+
+    .stat-chip {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-family: var(--font-body);
+      background: rgba(58,144,80,0.08);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .stat-chip strong { color: var(--green-200); }
+
+    /* ============================================================
+       SCROLL ANIMATION HELPER
+    ============================================================ */
+    .fade-in {
+      animation: fadeInUp 0.4s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .stagger-1 { animation-delay: 0.05s; }
+    .stagger-2 { animation-delay: 0.10s; }
+    .stagger-3 { animation-delay: 0.15s; }
+    .stagger-4 { animation-delay: 0.20s; }
+    .stagger-5 { animation-delay: 0.25s; }
+    .stagger-6 { animation-delay: 0.30s; }
+    .stagger-7 { animation-delay: 0.35s; }
+    .stagger-8 { animation-delay: 0.40s; }
+    .stagger-9 { animation-delay: 0.45s; }
+    .stagger-10 { animation-delay: 0.50s; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .app-layout {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      .sidebar { position: static; }
+      .soil-metrics { grid-template-columns: repeat(2, 1fr); }
+      .ai-card-body { grid-template-columns: 1fr; }
+      .reasoning-block { grid-column: 1; }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner { padding: 0 18px; }
+      .app-layout { padding: 14px; gap: 14px; }
+      .soil-metrics { grid-template-columns: repeat(2, 1fr); }
+      .crop-card { grid-template-columns: auto 1fr; }
+      .crop-prob-area { grid-column: 1 / -1; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────── -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo-group">
+        <div class="logo-icon">🌱</div>
+        <div class="logo-text">
+          <span class="logo-title">CropSense AI</span>
+          <span class="logo-sub">Smart Agriculture Recommender</span>
+        </div>
+      </div>
+      <div class="header-status">
+        <div class="status-dot" id="statusDot"></div>
+        <span id="statusText">Checking API…</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── APP LAYOUT ─────────────────────────────────────────── -->
+  <div class="app-layout">
+
+    <!-- ── SIDEBAR FORM ──────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-header-icon">🎛️</div>
+          <span class="panel-title">Query Parameters</span>
+        </div>
+        <div class="panel-body">
+
+          <!-- Mode Tabs -->
+          <div class="mode-tabs">
+            <div class="mode-tab active" id="tabBasic" onclick="setMode('basic')">
+              🌾 Basic ML
+            </div>
+            <div class="mode-tab" id="tabAI" onclick="setMode('ai')">
+              ✨ AI Analysis
+            </div>
+          </div>
+
+          <!-- State -->
+          <div class="form-group">
+            <label class="form-label" for="inputState">
+              <span class="label-dot"></span>State
+            </label>
+            <input
+              class="form-input" id="inputState"
+              type="text" placeholder="e.g. Karnataka"
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- District -->
+          <div class="form-group">
+            <label class="form-label" for="inputDistrict">
+              <span class="label-dot"></span>District
+            </label>
+            <input
+              class="form-input" id="inputDistrict"
+              type="text" placeholder="e.g. Davangere"
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- Year -->
+          <div class="form-group">
+            <label class="form-label" for="inputYear">
+              <span class="label-dot"></span>Year <span style="color:var(--text-muted);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span>
+            </label>
+            <input
+              class="form-input" id="inputYear"
+              type="text" placeholder="e.g. 2001-02"
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- Season -->
+          <div class="form-group">
+            <label class="form-label" for="inputSeason">
+              <span class="label-dot"></span>Season <span style="color:var(--text-muted);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span>
+            </label>
+            <div class="select-wrapper">
+              <select class="form-select" id="inputSeason">
+                <option value="">Auto-detect</option>
+                <option value="Kharif">Kharif (Jun–Sep)</option>
+                <option value="Rabi">Rabi (Oct–Feb)</option>
+                <option value="Summer">Summer (Mar–May)</option>
+                <option value="Whole Year">Whole Year</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Top K Crops (only for basic) -->
+          <div class="form-group" id="topKGroup">
+            <label class="form-label" for="inputTopK">
+              <span class="label-dot"></span>Top Crops
+            </label>
+            <div class="slider-wrapper">
+              <input
+                class="form-slider" id="inputTopK"
+                type="range" min="1" max="20" value="8"
+                oninput="document.getElementById('topKVal').textContent = this.value"
+              />
+              <span class="slider-val" id="topKVal">8</span>
+            </div>
+          </div>
+
+          <!-- ML Threshold -->
+          <div class="form-group">
+            <label class="form-label" for="inputThreshold">
+              <span class="label-dot"></span>ML Probability Threshold
+            </label>
+            <div class="slider-wrapper">
+              <input
+                class="form-slider" id="inputThreshold"
+                type="range" min="0" max="0.5" step="0.01" value="0.05"
+                oninput="document.getElementById('thresholdVal').textContent = parseFloat(this.value).toFixed(2)"
+              />
+              <span class="slider-val" id="thresholdVal">0.05</span>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button class="btn-primary" id="btnFetch" onclick="fetchData()">
+            <div class="btn-inner">
+              <span id="btnIcon">🔍</span>
+              <span id="btnText">Get Recommendations</span>
+            </div>
+          </button>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── RESULTS AREA ────────────────────────────────────────── -->
+    <main class="results-area" id="resultsArea">
+
+      <!-- WELCOME -->
+      <div class="welcome-state" id="welcomeState">
+        <div class="welcome-icon">🌾</div>
+        <div class="welcome-title">Start Your Crop Analysis</div>
+        <div class="welcome-desc">
+          Enter your state and district to get AI-powered crop recommendations based on historical data, soil health, and current season.
+        </div>
+      </div>
+
+      <!-- LOADING -->
+      <div class="loading-state" id="loadingState">
+        <div class="spinner-ring"></div>
+        <div class="loading-text" id="loadingText">Analysing crop data…</div>
+        <div class="loading-sub" id="loadingSub">Running ML model + dataset statistics</div>
+      </div>
+
+      <!-- ERROR -->
+      <div class="error-state" id="errorState">
+        <div class="error-icon">⚠️</div>
+        <div class="error-title">Unable to Fetch Data</div>
+        <div class="error-msg" id="errorMsg">Could not connect to the API. Make sure the server is running on localhost:8000.</div>
+      </div>
+
+      <!-- EMPTY -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">🔎</div>
+        <div class="empty-title">No crops matched the filters. Try loosening the parameters.</div>
+      </div>
+
+      <!-- META BAR -->
+      <div class="meta-bar" id="metaBar">
+        <div class="meta-group">
+          <span class="meta-label">📍 Location</span>
+          <span class="meta-value" id="metaLocation">—</span>
+        </div>
+        <div class="meta-sep">|</div>
+        <div class="meta-group">
+          <span class="meta-label">📅 Season</span>
+          <span class="season-badge default" id="metaSeason">—</span>
+        </div>
+        <div class="meta-sep" id="metaYearSep">|</div>
+        <div class="meta-group" id="metaYearGroup">
+          <span class="meta-label">🗓 Year</span>
+          <span class="meta-value" id="metaYear">—</span>
+        </div>
+      </div>
+
+      <!-- SOIL INFO CARD -->
+      <div class="soil-card" id="soilCard">
+        <div class="section-title">
+          <span class="section-title-text">🧪 Soil Profile</span>
+          <div class="section-title-line"></div>
+        </div>
+        <div class="soil-metrics" id="soilMetrics"></div>
+      </div>
+
+      <!-- STATS BAR -->
+      <div class="stats-bar" id="statsBar"></div>
+
+      <!-- BASIC CROPS GRID -->
+      <div class="crops-grid" id="cropsGrid"></div>
+
+      <!-- AI GEMINI CARDS -->
+      <div class="ai-cards" id="aiCards"></div>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    const API_BASE = 'http://localhost:8000';
+    let currentMode = 'basic';
+    let debounceTimer = null;
+
+    /* ── UTILS ────────────────────────────────────────── */
+    function el(id) { return document.getElementById(id); }
+
+    function hideAll() {
+      ['welcomeState','loadingState','errorState','emptyState',
+       'metaBar','soilCard','cropsGrid','aiCards','statsBar'
+      ].forEach(id => {
+        const e = el(id);
+        e.classList.remove('visible');
+        if (id === 'cropsGrid' || id === 'aiCards') {
+          e.style.display = 'none';
+        }
+      });
+    }
+
+    function show(id) {
+      const e = el(id);
+      e.classList.add('visible');
+      if (id === 'cropsGrid' || id === 'aiCards') {
+        e.style.display = 'flex';
+      }
+    }
+
+    function seasonClass(s = '') {
+      const map = { kharif: 'Kharif', rabi: 'Rabi', summer: 'Summer' };
+      return map[s.toLowerCase()] || 'default';
+    }
+
+    function seasonEmoji(s = '') {
+      const map = { kharif: '🌧️', rabi: '🌾', summer: '☀️', 'whole year': '🌍' };
+      return map[s.toLowerCase()] || '🌱';
+    }
+
+    function cropEmoji(name = '') {
+      const n = name.toLowerCase();
+      if (n.includes('rice') || n.includes('paddy')) return '🌾';
+      if (n.includes('wheat')) return '🌿';
+      if (n.includes('maize') || n.includes('corn')) return '🌽';
+      if (n.includes('cotton')) return '☁️';
+      if (n.includes('sugarcane')) return '🍬';
+      if (n.includes('potato')) return '🥔';
+      if (n.includes('tomato')) return '🍅';
+      if (n.includes('onion')) return '🧅';
+      if (n.includes('soybean') || n.includes('soya')) return '🫘';
+      if (n.includes('groundnut') || n.includes('peanut')) return '🥜';
+      if (n.includes('banana')) return '🍌';
+      if (n.includes('mango')) return '🥭';
+      if (n.includes('coconut')) return '🥥';
+      if (n.includes('mustard') || n.includes('rape')) return '🌻';
+      if (n.includes('sunflower')) return '🌻';
+      if (n.includes('jute')) return '🌱';
+      if (n.includes('coffee')) return '☕';
+      if (n.includes('tea')) return '🍵';
+      return '🌱';
+    }
+
+    function probColor(p) {
+      if (p >= 0.25) return 'var(--green-300)';
+      if (p >= 0.12) return 'var(--gold-300)';
+      return '#f0a870';
+    }
+
+    function accuracyClass(a) {
+      if (a >= 70) return 'accuracy-high';
+      if (a >= 45) return 'accuracy-medium';
+      return 'accuracy-low';
+    }
+
+    /* ── MODE ─────────────────────────────────────────── */
+    function setMode(mode) {
+      currentMode = mode;
+      el('tabBasic').classList.toggle('active', mode === 'basic');
+      el('tabAI').classList.toggle('active', mode === 'ai');
+      el('topKGroup').style.display = mode === 'basic' ? 'block' : 'none';
+      el('loadingSub').textContent = mode === 'ai'
+        ? 'Running ML + calling Gemini AI…'
+        : 'Running ML model + dataset statistics';
+      hideAll();
+      show('welcomeState');
+    }
+
+    /* ── API HEALTH CHECK ─────────────────────────────── */
+    async function checkHealth() {
+      try {
+        const r = await fetch(`${API_BASE}/health`, { signal: AbortSignal.timeout(4000) });
+        const d = await r.json();
+        const ok = d.status === 'ok' && d.model_loaded && d.dataset_loaded;
+        el('statusDot').className = 'status-dot' + (ok ? '' : ' offline');
+        el('statusText').textContent = ok ? 'API Connected' : 'Model Not Ready';
+      } catch {
+        el('statusDot').className = 'status-dot offline';
+        el('statusText').textContent = 'API Offline';
+      }
+    }
+
+    /* ── FETCH DATA ───────────────────────────────────── */
+    async function fetchData() {
+      const state    = el('inputState').value.trim();
+      const district = el('inputDistrict').value.trim();
+      const year     = el('inputYear').value.trim();
+      const season   = el('inputSeason').value.trim();
+      const topK     = el('inputTopK').value;
+      const thresh   = el('inputThreshold').value;
+
+      if (!state && !district && !year && !season) {
+        hideAll();
+        show('welcomeState');
+        return;
+      }
+
+      // Button loading
+      el('btnFetch').disabled = true;
+      el('btnIcon').textContent = '⏳';
+      el('btnText').textContent = 'Fetching…';
+
+      hideAll();
+      show('loadingState');
+
+      const params = new URLSearchParams();
+      if (state)    params.set('state', state);
+      if (district) params.set('district', district);
+      if (year)     params.set('year', year);
+      if (season)   params.set('season', season);
+      if (currentMode === 'basic') params.set('top_k_crops', topK);
+      params.set('ml_prob_threshold', thresh);
+
+      const endpoint = currentMode === 'ai'
+        ? `${API_BASE}/result/recommend`
+        : `${API_BASE}/recommend`;
+
+      try {
+        const resp = await fetch(`${endpoint}?${params.toString()}`);
+        if (!resp.ok) {
+          const err = await resp.json().catch(() => ({}));
+          throw new Error(err.detail || `HTTP ${resp.status}`);
+        }
+        const data = await resp.json();
+        renderResults(data);
+      } catch (e) {
+        hideAll();
+        el('errorMsg').textContent = e.message || 'Unknown error occurred.';
+        show('errorState');
+      } finally {
+        el('btnFetch').disabled = false;
+        el('btnIcon').textContent = '🔍';
+        el('btnText').textContent = 'Get Recommendations';
+      }
+    }
+
+    /* ── RENDER ───────────────────────────────────────── */
+    function renderResults(data) {
+      hideAll();
+
+      // Meta bar
+      const loc = [data.state, data.district].filter(Boolean).join(', ') || '—';
+      el('metaLocation').textContent = loc;
+      const sc = seasonClass(data.season || '');
+      el('metaSeason').textContent = (data.season ? `${seasonEmoji(data.season)} ${data.season}` : '—');
+      el('metaSeason').className = `season-badge ${sc}`;
+      if (data.year) {
+        el('metaYear').textContent = data.year;
+        el('metaYearGroup').style.display = 'flex';
+        el('metaYearSep').style.display = 'block';
+      } else {
+        el('metaYearGroup').style.display = 'none';
+        el('metaYearSep').style.display = 'none';
+      }
+      show('metaBar');
+
+      // Soil card
+      const soil = data.soil_info;
+      if (soil && Object.values(soil).some(v => v !== null)) {
+        el('soilMetrics').innerHTML = buildSoilMetrics(soil);
+        show('soilCard');
+        // animate bars after paint
+        setTimeout(() => {
+          document.querySelectorAll('.soil-bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.target;
+          });
+        }, 80);
+      }
+
+      // Recommendations
+      const recs = data.recommendations || [];
+      if (!recs.length) {
+        show('emptyState');
+        return;
+      }
+
+      if (currentMode === 'basic') {
+        renderBasic(recs);
+      } else {
+        renderAI(recs, data);
+      }
+    }
+
+    /* ── SOIL METRICS ─────────────────────────────────── */
+    function buildSoilMetrics(soil) {
+      const items = [
+        { key: 'N_ppm',  label: 'Nitrogen',    unit: 'ppm', icon: '🔵', cls: 'soil-n',  max: 300 },
+        { key: 'P_ppm',  label: 'Phosphorus',  unit: 'ppm', icon: '🟡', cls: 'soil-p',  max: 100 },
+        { key: 'K_ppm',  label: 'Potassium',   unit: 'ppm', icon: '🟢', cls: 'soil-k',  max: 400 },
+        { key: 'pH_avg', label: 'pH Level',    unit: '',    icon: '🟣', cls: 'soil-ph', max: 14  },
+      ];
+
+      return items.map(it => {
+        const val = soil[it.key];
+        if (val === null || val === undefined) return '';
+        const pct = Math.min(100, (val / it.max) * 100).toFixed(1);
+        const disp = Number.isInteger(val) ? val : val.toFixed(1);
+        return `
+          <div class="soil-metric ${it.cls} fade-in">
+            <div class="soil-metric-icon">${it.icon}</div>
+            <div class="soil-metric-label">${it.label}</div>
+            <div class="soil-metric-value">${disp}</div>
+            <div class="soil-metric-unit">${it.unit}</div>
+            <div class="soil-bar-row">
+              <div class="soil-bar-bg">
+                <div class="soil-bar-fill" style="width:0%" data-target="${pct}%"></div>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    /* ── BASIC RESULTS ────────────────────────────────── */
+    function renderBasic(recs) {
+      // Stats bar
+      el('statsBar').innerHTML = `
+        <span class="stat-chip">🌱 <strong>${recs.length}</strong> crops found</span>
+        <span class="stat-chip">🏆 Top: <strong>${recs[0]?.crop || '—'}</strong></span>
+        <span class="stat-chip">📊 Highest probability: <strong>${((recs[0]?.model_probability || 0) * 100).toFixed(1)}%</strong></span>
+      `;
+      show('statsBar');
+
+      const maxProb = Math.max(...recs.map(r => r.model_probability || 0));
+
+      el('cropsGrid').innerHTML = recs.map((rec, i) => {
+        const prob = rec.model_probability || 0;
+        const probPct = (prob * 100).toFixed(1);
+        const barW = maxProb > 0 ? ((prob / maxProb) * 100).toFixed(1) : 0;
+        const rankCls = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : 'rank-n';
+
+        // Seasons
+        const seasons = rec.all_seasons || (rec.best_season ? [rec.best_season] : []);
+        const seasonsHtml = seasons.slice(0, 4).map(s => {
+          const sc = seasonClass(s.season);
+          return `<span class="season-pill ${sc}">${seasonEmoji(s.season)} ${s.season} <span style="opacity:0.6">(${(s.probability*100).toFixed(0)}%)</span></span>`;
+        }).join('');
+
+        return `
+          <div class="crop-card fade-in stagger-${Math.min(i+1,10)}">
+            <div class="crop-rank ${rankCls}">${i+1}</div>
+            <div class="crop-info">
+              <div class="crop-name">${cropEmoji(rec.crop)} ${rec.crop}</div>
+              <div class="crop-seasons">${seasonsHtml || '<span class="season-pill default-s">Season unknown</span>'}</div>
+            </div>
+            <div class="crop-prob-area">
+              <div class="crop-prob-label">ML Score</div>
+              <div class="crop-prob-value" style="color:${probColor(prob)}">
+                ${probPct}<span class="prob-pct">%</span>
+              </div>
+              <div class="prob-bar-bg">
+                <div class="prob-bar-fill" style="width:0%" data-target="${barW}%"></div>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+
+      show('cropsGrid');
+
+      // Animate prob bars
+      setTimeout(() => {
+        document.querySelectorAll('.prob-bar-fill').forEach(b => {
+          b.style.width = b.dataset.target;
+        });
+      }, 80);
+    }
+
+    /* ── AI RESULTS ───────────────────────────────────── */
+    function renderAI(recs, data) {
+      // Stats bar
+      el('statsBar').innerHTML = `
+        <span class="stat-chip">✨ <strong>${recs.length}</strong> AI recommendations</span>
+        <span class="stat-chip">🤖 Powered by Gemini 2.0 Flash</span>
+        <span class="stat-chip">📍 ${[data.state, data.district].filter(Boolean).join(', ') || 'All India'}</span>
+      `;
+      show('statsBar');
+
+      el('aiCards').innerHTML = recs.map((rec, i) => {
+        const accuracy = rec.accuracy !== undefined ? Number(rec.accuracy) : null;
+        const accClass = accuracy !== null ? accuracyClass(accuracy) : 'accuracy-high';
+        const accDisplay = accuracy !== null ? `${accuracy}` : '—';
+
+        const breakdown = rec.investment_breakdown || {};
+        const bkRows = Object.entries({
+          '🌱 Seeds': breakdown.seeds,
+          '👷 Labour': breakdown.labour,
+          '🧪 Fertilizer': breakdown.fertilizer,
+          '⚙️ Other': breakdown.other,
+        }).filter(([,v]) => v).map(([k, v]) => `
+          <div class="breakdown-item">
+            <span class="breakdown-item-key">${k}</span>
+            <span class="breakdown-item-val">${v}</span>
+          </div>`).join('');
+
+        const sc = seasonClass(rec.season || data.season || '');
+
+        return `
+          <div class="ai-card fade-in stagger-${i+1}">
+            <div class="ai-card-header">
+              <div class="ai-card-left">
+                <div class="ai-crop-badge">${cropEmoji(rec.crop)}</div>
+                <div>
+                  <div class="ai-crop-name">${rec.crop}</div>
+                  <div class="ai-crop-season">
+                    ${rec.season ? `<span class="season-badge ${sc}" style="margin-top:4px;">${seasonEmoji(rec.season)} ${rec.season}</span>` : ''}
+                    ${rec.duration_to_grow ? ` · ⏱ ${rec.duration_to_grow}` : ''}
+                  </div>
+                </div>
+              </div>
+              <div class="ai-card-right">
+                <div class="accuracy-ring-wrap">
+                  <div class="accuracy-number ${accClass}">${accDisplay}<span style="font-size:16px;font-weight:600;color:var(--text-muted)">%</span></div>
+                  <div class="accuracy-label">Suitability Score</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ai-card-body">
+              <!-- Investment & Profit -->
+              <div class="finance-block">
+                ${rec.investment ? `
+                  <div class="finance-row">
+                    <div class="finance-row-label">💰 Investment / Acre</div>
+                    <div class="finance-row-value invest-value">${rec.investment}</div>
+                  </div>` : ''}
+                ${rec.profit ? `
+                  <div class="finance-row">
+                    <div class="finance-row-label">📈 Expected Profit / Acre</div>
+                    <div class="finance-row-value profit-value">${rec.profit}</div>
+                  </div>` : ''}
+                ${rec.duration_to_grow ? `
+                  <div class="duration-row">
+                    <span>⏳</span>
+                    <span class="duration-label">Growth Duration</span>
+                    <span class="duration-value">${rec.duration_to_grow}</span>
+                  </div>` : ''}
+              </div>
+
+              <!-- Breakdown -->
+              ${bkRows ? `
+                <div class="breakdown-block">
+                  <div class="breakdown-title">💼 Cost Breakdown</div>
+                  ${bkRows}
+                </div>` : '<div></div>'}
+
+              <!-- Reasoning -->
+              ${rec.reasoning ? `
+                <div class="reasoning-block">
+                  <div class="reasoning-text">💡 ${rec.reasoning}</div>
+                </div>` : ''}
+            </div>
+          </div>`;
+      }).join('');
+
+      show('aiCards');
+    }
+
+    /* ── AUTO FETCH ON INPUT ──────────────────────────── */
+    function scheduleAutoFetch() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        const s = el('inputState').value.trim();
+        const d = el('inputDistrict').value.trim();
+        if (s || d) fetchData();
+      }, 650);
+    }
+
+    ['inputState','inputDistrict','inputYear','inputSeason'].forEach(id => {
+      el(id).addEventListener('input', scheduleAutoFetch);
+      el(id).addEventListener('change', scheduleAutoFetch);
+    });
+
+    el('inputTopK').addEventListener('change', () => {
+      if (el('inputState').value.trim() || el('inputDistrict').value.trim()) fetchData();
+    });
+
+    el('inputThreshold').addEventListener('change', () => {
+      if (el('inputState').value.trim() || el('inputDistrict').value.trim()) fetchData();
+    });
+
+    /* ── INIT ─────────────────────────────────────────── */
+    checkHealth();
+    setInterval(checkHealth, 15000);
+  </script>
+</body>
+</html>
