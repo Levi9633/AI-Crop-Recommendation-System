@@ -1,6 +1,6 @@
-# Hybrid Crop Recommender API
+# AI Crop Recommendation System
 
-A powerful, fast, and intelligent FastAPI-based web service that recommends the most optimal crops to grow based on regional agricultural history, hyper-local soil chemistry, and predictive machine learning models. 
+A powerful, fast, and intelligent FastAPI-based web service that recommends the most optimal crops to grow based on regional agricultural history, hyper-local soil chemistry, and predictive machine learning models.
 
 ## Features
 
@@ -13,17 +13,23 @@ A powerful, fast, and intelligent FastAPI-based web service that recommends the 
 ## Core Endpoints
 
 ### 1. `GET /recommend` (Pure ML Prediction)
+
 Provides lightning-fast, offline predictions strictly derived from the local `.joblib` machine learning models and dataset statistical frequencies.
+
 - **Key Output**: Top Recommended Crops, Model Probability (%), and Optimal Growing Seasons.
 
 ### 2. `GET /result/recommend` (Advanced Economic Strategy)
-A hybrid endpoint that feeds regional soil profiles and the mathematical accuracy calculations from your local ML model into an advanced Generative Language AI. 
+
+A hybrid endpoint that feeds regional soil profiles and the mathematical accuracy calculations from your local ML model into an advanced Generative Language AI.
+
 - **Key Output**: Crop Name, Model Accuracy Probability, Detailed Investment Costs, Expected Profit Margins, Harvest Duration, and Technical Reasoning.
 
-### 3. `GET /health` 
-A fast diagnostic endpoint to verify if system dependencies, datasets, and machine learning `.joblib` artifacts have successfully initialized. 
+### 3. `GET /health`
+
+A fast diagnostic endpoint to verify if system dependencies, datasets, and machine learning `.joblib` artifacts have successfully initialized.
 
 ## Technologies Used
+
 - **Backend Framework**: Python (FastAPI, Uvicorn)
 - **Data Engineering**: Pandas, NumPy
 - **Machine Learning**: Scikit-Learn
@@ -31,18 +37,21 @@ A fast diagnostic endpoint to verify if system dependencies, datasets, and machi
 ## Installation & Setup
 
 1. **Activate your virtual environment**  
-   *(Windows Example)*:
+   _(Windows Example)_:
+
    ```powershell
    .\myenv\Scripts\activate
    ```
 
 2. **Install Required Packages**:  
    Ensure you have the required dependencies, specifically matching the ML environment versions.
+
    ```powershell
    pip install fastapi uvicorn scikit-learn==1.7.2 pandas numpy requests pydantic
    ```
 
 3. **Start the API Server**:
+
    ```powershell
    uvicorn app3:app --reload
    ```
