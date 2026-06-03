@@ -46,13 +46,13 @@ flowchart TD
     classDef fallback fill:#fcf3cf,stroke:#f1c40f,stroke-width:2px,color:#7d6608;
     classDef gemini fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#4a235a;
     
-    Client["📱 Client Request / Swagger UI"]:::client
+    Client(["📱 Client Request / Swagger UI"]):::client
     Gateway["⚡ FastAPI Router (app3.py)"]:::gateway
     
     subgraph CoreEngine ["⚙️ Core Processing Layer"]
-        SoilDB["🛢️ Soil NPK Database (india_district_npk.csv)"]:::fallback
-        CropDB["🛢️ Production Stats (India Agriculture Crop Production.csv)"]:::fallback
-        Fallback["🔄 Hierarchical Query Fallback Engine"]:::fallback
+        SoilDB[("🛢️ Soil NPK Database (india_district_npk.csv)")]:::fallback
+        CropDB[("🛢️ Production Stats (India Agriculture Crop Production.csv)")]:::fallback
+        Fallback{"🔄 Hierarchical Query Fallback Engine"}:::fallback
         MLEngine["🧠 Scikit-Learn Pipeline (hybrid_crop_model.joblib)"]:::mlEngine
         MLB["🏷️ Label Binarizer (hybrid_mlb.joblib)"]:::mlEngine
         HybridScorer["⚖️ Hybrid Scoring Algorithm"]:::mlEngine
@@ -73,13 +73,13 @@ flowchart TD
     Gateway --> MLEngine
     MLEngine --> MLB
     
-    MLEngine -->|P_ML| HybridScorer
-    Fallback -->|P_Freq| HybridScorer
+    MLEngine -->|"P_ML"| HybridScorer
+    Fallback -->|"P_Freq"| HybridScorer
     
-    Gateway -->|Prompt: Soil Stats + Hybrid Top Crops| Gemini
+    Gateway -->|"Prompt: Soil Stats + Hybrid Top Crops"| Gemini
     
-    HybridScorer -->|JSON Response| Client
-    Gemini -->|JSON Response (Economic Strategies)| Client
+    HybridScorer -->|"JSON Response"| Client
+    Gemini -->|"JSON Response (Economic Strategies)"| Client
 ```
 
 ---
