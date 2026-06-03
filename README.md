@@ -62,9 +62,10 @@ flowchart TD
         Gemini["✨ Google Gemini API (gemini-2.5-flash)"]:::gemini
     end
     
+    ClientResponse(["📱 Serialized JSON Response"]):::client
+    
     %% Connections
-    Client -->|"/recommend"| Gateway
-    Client -->|"/result/recommend"| Gateway
+    Client -->|"/recommend or /result/recommend"| Gateway
     
     Gateway --> SoilDB
     Gateway --> Fallback
@@ -76,10 +77,10 @@ flowchart TD
     MLEngine -->|"P_ML"| HybridScorer
     Fallback -->|"P_Freq"| HybridScorer
     
-    Gateway -->|"Prompt: Soil Stats + Hybrid Top Crops"| Gemini
+    Gateway -->|"Prompt: Soil + ML Crops"| Gemini
     
-    HybridScorer -->|"JSON Response"| Client
-    Gemini -->|"JSON Response (Economic Strategies)"| Client
+    HybridScorer -->|"Pure ML JSON"| ClientResponse
+    Gemini -->|"Economic Analysis JSON"| ClientResponse
 ```
 
 ---
